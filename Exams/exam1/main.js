@@ -23,9 +23,12 @@ function cardChange(event) {
   if (event.target.tagName !== "IMG") return;
   let src = event.target.src;
   if (src.slice(src.indexOf("public")) !== "public/js.svg") return;
+  event.target.classList.add("rotate");
   const random = Math.floor(Math.random() * imgSource2.length);
   let img = imgSource2[random];
-  event.target.src = img;
+  setTimeout(() => {
+    event.target.src = img;
+  }, 100);
   if (!twoImage[0]) {
     twoImage[0] = img;
   } else if (!twoImage[1]) {
@@ -36,11 +39,11 @@ function cardChange(event) {
       saveTwoImage.push(twoImage[0]);
       imgSource2.splice(imgSource2.indexOf(twoImage[0]), 1);
     }
-    setTimeout(reset, 500);
+    setTimeout(reset, 1400);
     left.removeEventListener("click", cardChange);
     setTimeout(() => {
       left.addEventListener("click", cardChange);
-    }, 500);
+    }, 1400);
     counter++;
     twoImage = [];
     if (saveTwoImage.length === 6) {
@@ -52,7 +55,7 @@ function cardChange(event) {
 
 function newGame() {
   saveTwoImage = [];
-  imgSource2.splice(0,imgSource2.length);
+  imgSource2.splice(0, imgSource2.length);
   imgSource2.push(...imgSource);
   counter = 0;
   reset();
@@ -73,6 +76,7 @@ function reset() {
     src = element.src.slice(element.src.indexOf("public"));
     if (!saveTwoImage.includes(src) && !src.includes("public/js.svg")) {
       element.src = "public/js.svg";
+      element.classList.remove("rotate");
     }
   }
 }
