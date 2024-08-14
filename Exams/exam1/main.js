@@ -7,37 +7,59 @@ let saveTwoImage = [];
 let yourName = "";
 let html = "";
 const imgSource = [
-  "public/angular.svg",
-  "public/aurelia.svg",
-  "public/backbone.svg",
-  "public/ember.svg",
-  "public/react.svg",
-  "public/vue.svg",
+  { src: "public/angular.svg", id: 10 },
+  { src: "public/aurelia.svg", id: 12 },
+  { src: "public/backbone.svg", id: 14 },
+  { src: "public/ember.svg", id: 16 },
+  { src: "public/react.svg", id: 18 },
+  { src: "public/vue.svg", id: 20 },
+  { src: "public/angular.svg", id: 22 },
+  { src: "public/aurelia.svg", id: 24 },
+  { src: "public/backbone.svg", id: 26 },
+  { src: "public/ember.svg", id: 28 },
+  { src: "public/react.svg", id: 30 },
+  { src: "public/vue.svg", id: 32 },
 ];
-const imgSource2 = imgSource.slice();
 //======
 button.firstElementChild.addEventListener("click", newGame);
 button.lastElementChild.addEventListener("click", clearBoard);
 left.addEventListener("click", cardChange);
+function randomizer() {
+  imgSource.forEach((item, index) => {
+    const random = Math.floor(Math.random() * imgSource.length);
+    let sample = imgSource[index];
+    imgSource[index] = imgSource[random];
+    imgSource[random] = sample;
+  });
+  renderCartElement();
+}
+randomizer();
+function renderCartElement() {
+  let html = "";
+  imgSource.forEach((item) => {
+    html += `<img data-id="${item.id}" src="public/js.svg" alt="" />`;
+  });
+  left.innerHTML = html;
+}
 function cardChange(event) {
   if (event.target.tagName !== "IMG") return;
   let src = event.target.src;
   if (src.slice(src.indexOf("public")) !== "public/js.svg") return;
   event.target.classList.add("rotate");
-  const random = Math.floor(Math.random() * imgSource2.length);
-  let img = imgSource2[random];
+  let img = imgSource.find(
+    ({ id }) => id.toString() === event.target.dataset.id
+  );
   setTimeout(() => {
-    event.target.src = img;
+    event.target.src = img.src;
   }, 100);
   if (!twoImage[0]) {
-    twoImage[0] = img;
+    twoImage[0] = img.src;
   } else if (!twoImage[1]) {
-    twoImage[1] = img;
+    twoImage[1] = img.src;
   }
   if (twoImage.length === 2) {
     if (twoImage[0] === twoImage[1]) {
       saveTwoImage.push(twoImage[0]);
-      imgSource2.splice(imgSource2.indexOf(twoImage[0]), 1);
     }
     setTimeout(reset, 1400);
     left.removeEventListener("click", cardChange);
@@ -55,9 +77,8 @@ function cardChange(event) {
 
 function newGame() {
   saveTwoImage = [];
-  imgSource2.splice(0, imgSource2.length);
-  imgSource2.push(...imgSource);
   counter = 0;
+  randomizer();
   reset();
 }
 function createElement() {
@@ -69,6 +90,7 @@ function createElement() {
 }
 function clearBoard() {
   body.innerHTML = "";
+  html = "";
 }
 function reset() {
   let src;
