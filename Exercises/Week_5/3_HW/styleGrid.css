@@ -1,0 +1,91 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+main {
+  font-family: sans-serif;
+  padding: 10px;
+  max-width: 900px;
+  display: grid;
+  row-gap: 15px;
+  margin: 0 auto;
+}
+.head {
+  display: grid;
+ grid-template-columns: 20% 80%;
+  justify-items: end;
+  border-bottom: 1px rgb(228, 228, 228) solid;
+  padding-bottom: 15px;
+}
+.upLeft {
+  color: rgb(150, 147, 147);
+  font-weight: bolder;
+  justify-self: self-start;
+  align-self: center;
+}
+.upRight > a {
+  display: inline-block;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  color: blue;
+  background-color: rgb(228, 228, 228);
+  text-decoration: none;
+}
+.upRight > a:hover {
+  background-color: blue;
+  color: white;
+}
+.center {
+  margin-top: 20px;
+  display: grid;
+  justify-items: center;
+  padding: 30px 20px 20px 20px;
+  background-color: rgb(236, 236, 236);
+  border-radius: 5px;
+}
+.center h1 {
+  font-size: 40px;
+  color: rgb(46, 45, 45);
+}
+.center p {
+  margin-top: 10px;
+  line-height: 22px;
+}
+.signUp {
+  color: white;
+  background-color: green;
+  padding: 15px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+  text-decoration: none;
+}
+.article {
+  display: grid;
+  column-gap: 15px;
+  grid-template-columns: repeat(auto-fill, 25rem);
+}
+.left,
+.right {
+  width: 25rem;
+}
+.left > div > p {
+  margin: 5px 0 20px 0;
+}
+.right > div > p {
+  margin: 5px 0 20px 0;
+}
+.left span,
+.right span {
+  font-weight: bold;
+  font-size: 17px;
+}
+.last {
+  border-top: 1px rgb(228, 228, 228) solid;
+  padding-top: 15px;
+  font-size: 15px;
+  color: rgb(185, 182, 182);
+}

@@ -1,0 +1,451 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.main{
+  font-family: sans-serif;
+  display: grid;
+  row-gap: 50px;
+}
+.header{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  background-color: black;
+  color: white;
+}
+.nav1{
+  display: flex;
+  justify-content: space-between;
+}
+.logo , .iBar{
+  padding: 15px;
+  color: white;
+  text-decoration: none;
+}
+.logo{
+  background-color: rgb(14, 156, 137);
+}
+.logo:hover{
+  color: black;
+  background-color: rgb(170, 169, 169);
+}
+.logo i{
+  margin-right: 12px;
+}
+img{
+  width: 100%;
+  vertical-align: bottom;
+}
+.iBar:hover{
+  color: black;
+  background-color: white;
+  cursor: pointer;
+}
+.headList{
+  padding: 15px;
+  display: grid;
+  row-gap: 10px;
+  background-color: black;
+}
+.headList a{
+  color: white;
+  text-decoration: none;
+}
+.dis-none{
+  display: none;
+}
+.section2{
+  display: grid;
+  row-gap: 30px;
+  justify-items: center;
+}
+.section2 .allTeam{
+  display: grid;
+  row-gap: 30px;
+  justify-items: center;
+}
+h3{
+  font-size: 26px;
+  font-weight: 500;
+}
+h2{
+  font-size: 30px;
+  font-weight: 500;
+}
+.section1 img{
+  padding-top: 40px;
+}
+.section2 h2 ,.section2 h3{
+text-align: center;
+margin: 15px 0;
+}
+.team{
+display: grid;
+justify-items: center;
+width: 40%;
+}
+.section3{
+  position: relative;
+  padding: 40px 15px;
+  color: white;
+  background-color: rgb(56, 55, 55);
+}
+.section3 p{
+  margin: 15px 0;
+}
+.section3 p:last-child{
+  margin: 0;
+}
+.section3 h2{
+  padding: 20px 0;
+}
+.section3 h3{
+  padding-top: 15px;
+  padding-bottom: 10px;
+}
+.section3 .text{
+  color: black;
+  background-color: white;
+  padding-left: 15px;
+  padding-bottom: 15px;
+}
+.section3 .text:first-child{
+  background-color: inherit;
+  color: white;
+  padding: 0;
+  padding-bottom: 15px;
+  line-height: 25px;
+}
+.imageTitle{
+  display: flex;
+  flex-wrap: wrap;
+}
+.imageTitle .text{
+  width: 100%;
+}
+.plus{
+  font-size: 30px;
+  color: white;
+  text-decoration: none;
+  background-color: rgb(12, 165, 114);
+  border-radius: 50%;
+  padding: 7px 14px;
+  position:absolute;
+  bottom:0 ;
+  right: 30px;
+  transform: translate(0,+50%);
+}
+.plusPage {
+  position: fixed;
+  font-size: 40px;
+  font-weight: 500;
+  padding: 20px;
+  background-color: white;
+  height: 100%;
+  width: 50%;
+  z-index: 2;
+}
+.plusPage a{
+  display: block;
+  text-decoration: none;
+  color: black;
+}
+.plusPage a:first-child{
+  color: rgb(12, 165, 114);
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+.section4{
+  padding: 50px 18px ;
+  display: grid;
+  row-gap: 15px;
+  text-align: center;
+}
+.section4 .text p{
+  line-height: 35px;
+}
+.cart{
+  border: 0 solid gainsboro;
+  border-width: 1px 1px 0 1px;
+}
+ .cart ul li{
+  border-bottom: 1px solid gainsboro;
+  padding: 15px;
+  list-style-type: none;
+}
+.cart ul li:first-child{
+  color: white;
+  background-color: black;
+  padding: 30px;
+  font-size: 25px;
+}
+.cart ul li:nth-child(6){
+  font-size: 30px;
+  padding: 20px;
+  letter-spacing: 5px;
+  padding-bottom: 13px;
+}
+.cart ul li:nth-child(6) b{
+  margin-right: 12px;
+}
+.cart ul li:nth-child(6) p{
+  font-size: 16px;
+  margin-top: 15px;
+  letter-spacing: 0;
+  color: rgb(158, 158, 158);
+}
+.cart:nth-child(odd) ul li:first-child{
+  color:white ;
+  background-color: rgb(117, 117, 117);
+}
+.cart button {
+  font-size: 16px;
+  padding: 15px 20px;
+  color: white;
+  background-color: rgb(14, 156, 137);
+  border: none;
+  cursor: pointer;
+}
+.cart button:hover{
+  background-color: rgb(199, 199, 199);
+  color: black;
+}
+.cart button i{
+  margin-right: 10px;
+}
+.cart ul li:last-child{
+  background-color: rgb(236, 236, 236);
+  padding: 18px 0;
+}
+.cart:hover{
+  box-shadow: 2px 2px 6px 6px lightgray;
+}
+.section5{
+  background-color: rgb(236, 236, 236);
+
+}
+.textForm{
+  padding: 50px 15px;
+}
+.section5 .text{
+  padding-bottom: 15px;
+  line-height: 40px;
+}
+.section5 .text h2{
+  border-bottom: 5px solid rgb(14, 156, 137);
+  display: inline-block;
+  margin-bottom: 20px;
+}
+.section5 .text p i{
+  color: rgb(14, 156, 137);
+  margin-right: 5px;
+}
+.section5 .form{
+  background-color: white;
+  box-shadow: 2px 2px 6px 8px lightgray;
+  padding: 30px 15px 15px;
+  display: grid;
+  row-gap: 15px;
+
+}
+.section5 .form input{
+  width: 100%;
+  padding: 15px 0;
+  border: none;
+  border-bottom: 1px solid gainsboro;
+}
+.section5 .form div:last-child{
+  display: flex;
+  align-items: center;
+justify-content: space-between;
+}
+
+.section5 .form div:last-child div input{
+  display: inline-block;
+  width: 23px;
+  height: 23px;
+  transform: translate(0,4px);
+  cursor: pointer;
+}
+.section5 .form div:last-child button{
+  border: none;
+  font-size: 18px;
+  padding: 10px 14px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+.section5 .form div:last-child button:hover{
+  background-color: lightgray;
+  color: black;
+}
+.footer{
+  position: relative;
+  font-family: sans-serif;
+  background-color: black;
+  color: whitesmoke;
+  padding: 33px 15px 70px ;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.footer h4{
+  font-size: 20px;
+}
+.footer .icons{
+  display: flex;
+flex-wrap: wrap;
+column-gap: 5px;
+margin: 15px 0;
+}
+.footer a{
+  color: whitesmoke;
+}
+.footer .icons a{
+  background-color: rgb(14, 156, 137);
+  padding: 16px;
+
+}
+.footer .icons a:hover{
+  background-color: aliceblue;
+  color: black;
+}
+.arrowTop{
+  position: absolute;
+  right: 0;
+  align-self: center;
+}
+.arrowTop a{
+  color: white;
+  padding: 15px;
+}
+.arrowTop a:hover{
+  background-color: aliceblue;
+  color: black;
+}
+.col-12{
+  width: 100%;
+}
+@media only screen and (min-width : 600px){
+.pad-md-0{
+  padding: 0;
+}
+.dis-md-none{
+  display: none;
+}
+.flex-md-wrap{
+  flex-wrap: wrap;
+}
+.dis-md-flex{
+  display: flex !important;
+}
+.dis-md-grid{
+  display: grid;
+}
+.justS-md-center{
+  justify-self: center;
+}
+.dis-md-block{
+  display: block;
+}
+.col-md-2{
+  width: 16.66%;
+}
+.col-md-3{
+  width: 25%;
+}
+.col-md-4{
+  width: 33.33%;
+}
+.col-md-5{
+  width: 41.66%;
+}
+.col-md-4-1{
+  width: calc(33.33% - 20px / 3) ;
+}
+.col-md-7{
+  width: 58.33%;
+}
+.col-md-8{
+  width: 66.66%;
+}
+.col-md-12{
+  width: 100%;
+}
+.col-md-gap70{
+  column-gap: 70px;
+}
+.text-md-block{
+  display: block;
+}
+.fontS-md-21{
+  font-size: 21px;
+}
+.justC-md-sa{
+justify-content: space-around;
+}
+.pad-md-lr-10{
+  padding: 0 10px;
+}
+.pad-md-lr-20{
+  padding: 0 20px;
+}
+.imgW-md-80p{
+width: 80%s;
+}
+.pad-md-lr-50{
+  padding: 0 50px;
+}
+.col-md-gap10{
+  column-gap: 10px;
+}
+.pad-md-15-20{
+  padding: 15px 19px;
+}
+.alignC-md-start{
+  align-content: start;
+}
+.color-md-white{
+  color: white;
+}
+.color-md-black{
+  color: black !important;
+}
+.backColor-md-white{
+  background-color: white;
+}
+.textD-md-none{
+  text-decoration: none;
+}
+.position-md-ab-r{
+  position: absolute;
+  right: 0;
+}
+.position-md-ab{
+  position: absolute;
+}
+.button-md-hover:hover{
+  color: black;
+  background-color: white;
+}
+.button-md-hover2:hover{
+  color: white !important;
+  background-color: rgb(218, 217, 217) !important;
+}
+.button-md-gridShow:hover div{
+display: grid;
+}
+.width-md-100{
+  width: 150px;
+}
+.button-md-hover3:hover{
+  background-color:rgb(14, 156, 137) ;
+}
+.button-md-hover4:hover{
+  color: black;
+  background-color: rgb(218, 217, 217) ;
+}
+}

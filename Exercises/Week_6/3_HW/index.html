@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>M App</title>
+  </head>
+  <body>
+    <main class="main">
+      <div class="movie">
+        <h2>My Fabirite Movies</h2>
+        <div>
+          <div class="form" id="form">
+            <input id="id1" type="text" name="name" placeholder="name" />
+            <input type="number" name="rate" placeholder="rate" />
+            <input type="button" onclick="submit()" value="add" />
+          </div>
+          <p id="error"></p>
+        </div>
+      </div>
+      <div class="table">
+        <div>
+          name <i id="double" class="fa fa-angle-double-down" aria-hidden="true"></i>
+        </div>
+        <div>rate<i id="doubleRate" class="fa fa-angle-double-down" aria-hidden="true"></i></div>
+        <div>Action</div>
+        <div class="tableData" id="tableData"></div>
+      </div>
+    </main>
+    <script src="main.js"></script>
+  </body>
+</html>

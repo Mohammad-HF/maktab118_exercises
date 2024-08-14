@@ -1,0 +1,110 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+.main {
+  display: grid;
+  justify-content: center;
+  row-gap: 30px;
+  margin-top: 50px;
+  width: 100%;
+}
+.main button {
+  padding: 15px 0px;
+  border-style: none;
+  border-radius: 5px;
+  background-color: rgb(211, 211, 211);
+  box-shadow: 2px 2px 10px;
+}
+.main button:hover {
+  background-color: rgb(119, 199, 0);
+  color: white;
+  cursor: pointer;
+}
+.state2-button:hover{
+  background-color: rgb(199, 23, 0) !important;
+}
+.add {
+  display: grid;
+  row-gap: 15px;
+  justify-items: center;
+}
+.form {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  row-gap: 20px;
+  background-color: gainsboro;
+  box-shadow: 2px 2px 15px;
+  border-radius: 5px;
+  padding: 20px;
+}
+.form label {
+  align-self: center;
+}
+.form input {
+  margin-right: 10px;
+  padding: 8px 0 8px 8px;
+  border-radius: 5px;
+  border: none;
+}
+.form input:last-child {
+  grid-column-start: 4;
+  grid-column-end: 5;
+  background-color: rgb(199, 199, 199);
+  box-shadow: 3px 3px 8px;
+}
+.form input:last-child:hover {
+  background-color: rgb(119, 199, 0);
+  color: white;
+  cursor: pointer;
+}
+.table,
+.table td,
+.table th {
+  border: 1px solid gray;
+  padding: 10px;
+}
+.table {
+  border-collapse: collapse;
+}
+.head {
+  background-color: burlywood;
+}
+.body tr td button {
+  background-color: rgb(197, 197, 197);
+  box-shadow: 3px 3px 7px;
+  padding: 5px 12px;
+}
+.body tr:nth-child(2n) {
+  background-color: rgb(242, 242, 242);
+}
+.body tr td:last-child {
+  padding-left: 12px;
+}
+.body tr td button:hover {
+  background-color: red;
+  color: white;
+  cursor: pointer;
+}
+.error {
+  font-weight: bold;
+  border-radius: 10px;
+  max-width: 142px;
+  line-height: 15px;
+  text-align: center;
+  margin-left: 8px;
+}
+.fail{
+  color: rgb(248, 4, 4) ;
+  background: rgb(247, 147, 147) ;
+}
+.success{
+  color: rgb(4, 194, 20) ;
+  background: rgb(153, 240, 150) ;
+  align-self: center;
+  padding: 8px;
+}
+.dis-none {
+  display: none;
+}

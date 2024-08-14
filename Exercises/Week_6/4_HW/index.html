@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>M App</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="main">
+      <button id="showAdd">To Create New Person Please Press</button>
+      <div class="add dis-none" id="add">
+        <h2>Add New Person</h2>
+        <div>
+          <form class="form" id="form" action="javascript:void(0)">
+            <label for="uid">UID :</label>
+            <input id="uid" type="number" name="uid" required />
+            <label for="firstName">FirstName :</label>
+            <input id="firstName" type="text" name="firstName" required />
+            <label for="lastName">LastName :</label>
+            <input id="lastName" type="text" name="lastName" required />
+            <label for="pNumber">PhoneNumber :</label>
+            <input id="pNumber" type="number" name="phoneNumber" required />
+            <label for="position">Position :</label>
+            <input id="position" type="text" name="position" required />
+            <label for="pCode">PostalCode :</label>
+            <input id="pCode" type="number" name="postalCode" required />
+            <label for="city">City :</label>
+            <input id="city" type="text" name="city" required />
+            <p id="error" class="error"></p>
+            <input id="createP" type="submit" value="Create" />
+          </form>
+        </div>
+      </div>
+      <table class="table">
+        <thead class="head">
+          <th>UID</th>
+          <th>FirstName</th>
+          <th>LastName</th>
+          <th>PhoneNumber</th>
+          <th>Position</th>
+          <th>PostalCode</th>
+          <th>City</th>
+          <th>Operation</th>
+        </thead>
+        <tbody class="body" id="body"></tbody>
+      </table>
+    </div>
+    <script src="data.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,137 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --button-fontSize: 15px;
+}
+
+.main {
+  background-color: rgb(177, 173, 173);
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+  padding: 7px;
+}
+.header {
+  background-color: rgb(39, 39, 39);
+  display: flex;
+  flex-direction: column;
+}
+.menu {
+  row-gap: 20px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 20px;
+}
+.i {
+  align-self: center;
+  color: red;
+}
+.i:hover + .menu,
+.menu:hover {
+  display: flex;
+}
+.menu a {
+  background-color: inherit;
+  color: rgb(211, 206, 206);
+  border: none;
+  font-size: var(--button-fontSize);
+  text-decoration: none;
+  padding: 5px;
+}
+.section {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+.left {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+.left a {
+  color: black;
+  background-color: rgb(39, 150, 241);
+  font-size: var(--button-fontSize);
+  border: none;
+  height: 43px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.center {
+  padding: 0 15px;
+}
+.center h2 {
+  margin-bottom: 10px;
+}
+.center p:last-child {
+  margin-top: 15px;
+}
+.right {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+.right a {
+  color: black;
+  background-color: rgb(132, 11, 148);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+  text-decoration: none;
+}
+.footer {
+  background-color: rgb(231, 139, 116);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 0;
+}
+
+@media only screen and (min-width: 600px) {
+  .dis-md-none {
+    display: none;
+  }
+  .dis-md-flex {
+    display: flex;
+  }
+  .flex-md-row {
+    flex-direction: row;
+  }
+  .flex-md-wrap {
+    flex-wrap: wrap;
+  }
+  .col-md-gap-20px {
+    column-gap: 20px;
+  }
+  .col-md-2 {
+    width: 16.66%;
+  }
+  .col-md-10 {
+    width: 83.33%;
+  }
+  .col-md-12 {
+    width: 100%;
+  }
+  .pad-md-20px {
+    padding: 15.5px;
+  }
+}
+@media only screen and (min-width: 800px) {
+  .col-lg-3 {
+    width: 25%;
+  }
+  .col-lg-7 {
+    width: 58.33%;
+  }
+  .height-lg-87px {
+    height: 87px;
+  }
+}
