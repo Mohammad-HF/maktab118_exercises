@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="main">
+      <h2>Timer</h2>
+      <p class="clock" id="clock">00:00:00</p>
+      <div class="button" id="button">
+        <button>Cancel</button>
+        <button>Start</button>
+      </div>
+      <div class="special">
+        <div class="menu">
+          <select id="menu">
+              <option value="0">none</option>
+              <option value="1">1 minute</option>
+              <option value="2">5 minute</option>
+              <option value="3">10 minute</option>
+              <option value="4">15 minute</option>
+              <option value="5">20 minute</option>
+              <option value="6">custom</option>
+          </select>
+        </div>
+        <div class="audio" id="volum">
+          <i class="fa fa-volume-off fa-2x" aria-hidden="true"></i>
+          <audio src="crazy-phrog-184294.mp3" id="audio"></audio>
+        </div>
+      </div>
+      <div class="minValue dis-none" id="minValue">
+        <label for="input">Minutes :</label>
+        <input type="number" id="input" />
+        <button id="submit">submit</button>
+      </div>
+      <p class="error dis-none" id="error">please enter value</p>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

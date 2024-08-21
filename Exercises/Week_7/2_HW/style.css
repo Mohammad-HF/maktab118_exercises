@@ -1,0 +1,115 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  display: grid;
+  justify-items: center;
+}
+.main {
+  display: grid;
+  row-gap: 20px;
+  margin-top: 15%;
+  font-family: sans-serif;
+  padding: 20px;
+  background-color: rgb(240, 240, 240);
+  border-radius: 10px;
+  width: 336.25px;
+}
+.main p {
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+}
+.button {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid gainsboro;
+  padding-top: 10px;
+}
+button {
+  background-color: white;
+  border: 1px solid gainsboro;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+}
+.button button:last-child {
+  color: white;
+  background-color: rgb(63, 218, 63);
+}
+button:hover {
+  color: white;
+  background-color: rgb(63, 218, 63);
+}
+.red {
+  color: white !important;
+  background-color: rgb(231, 33, 33) !important;
+}
+.special {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid gainsboro;
+  padding-top: 10px;
+}
+.special .audio {
+  background-color: white;
+  color: rgb(158, 157, 157);
+  border: 1px solid gainsboro;
+  border-radius: 5px;
+  padding: 2px 15px;
+  width: 55px;
+  align-self: center;
+}
+.audio:hover {
+  color: white;
+  background-color: rgb(14, 215, 230);
+  cursor: pointer;
+}
+.play {
+  color: white !important;
+  background-color: rgb(14, 215, 230) !important;
+}
+.menu select {
+  border: 1px solid gainsboro;
+  padding: 10px 25px;
+  border-radius: 5px;
+  font-size: 15px;
+  outline: none;
+}
+
+.menu select option {
+  background-color: rgb(230, 230, 230);
+  font-size: 15px;
+}
+.minValue {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid gainsboro;
+  padding-top: 10px;
+}
+.minValue input {
+  width: 30%;
+  padding: 7px 0;
+  border: 2px solid gainsboro;
+  border-radius: 5px;
+  padding-left: 3px;
+  outline: none;
+}
+.minValue input:focus {
+  border: 2px solid aqua !important;
+}
+.error {
+  color: rgb(194, 0, 0);
+  background-color: rgb(250, 98, 98);
+  width: fit-content;
+  border-radius: 5px;
+  padding: 5px;
+  margin: auto;
+}
+.dis-none {
+  display: none;
+}
