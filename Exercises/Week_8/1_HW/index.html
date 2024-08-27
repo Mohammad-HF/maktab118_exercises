@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>M App</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <div class="mainAndModule">
+      <div class="main grid-lg-cols1 row-lg-gap25 pad-lg-lr20" id="main">
+        <div class="list">
+          <h2>رستوران مک دونالد شعبه تهران</h2>
+          <div class="foodList grid-md-cols1 pad-sm-10" id="foodList"></div>
+        </div>
+
+        <div class="card Width-lg-max50 justS-lg-center" id="card">
+          <p>:جمع کل سفارشات</p>
+          <p>0 تومامن</p>
+          <p>:حق سرویس و کارمزد</p>
+          <p>0 تومامن</p>
+          <p>:تخفیف</p>
+          <p>0 درصد</p>
+          <div class="off">
+            <input list="offInputs" name="offInput" id="offInput" />
+            <datalist id="offInputs">
+              <option value="gold"></option>
+              <option value="silver"></option>
+              <option value="bronze"></option>
+            </datalist>
+            <i class="fa fa-check fa-lg" aria-hidden="true"></i>
+          </div>
+          <p class="error" id="error"></p>
+          <div class="endP">
+            <p>مبلغ قابل پرداخت</p>
+            <p>0 تومان</p>
+          </div>
+          <button id="submit">ثبت سفارش</button>
+        </div>
+      </div>
+      <div class="module display-none" id="showModule">
+        <div class="textButton">
+          <p>سفارش شما با موفقیت ثبت شد.</p>
+          <button id="ok">باشه</button>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
