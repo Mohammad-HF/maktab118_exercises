@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div class="main" id="main">
+      <form class="req" id="reqForm">
+        <input type="url" name="serverUrl" placeholder="url Input" />
+        <select name="method" id="method">
+          <option value="get">Get</option>
+          <option value="post">Post</option>
+        </select>
+        <input type="submit" value="submit" id="submit" />
+        <p class="error" id="error"></p>
+      </form>
+      <div class="dis-none row-gap-10 dis-md-grid grid-md-cols-2 col-md-gap-10" id="postShow">
+        <div>
+          <p>Request Body :</p>
+          <textarea class="reqBody" id="reqBody"  name="reqBody"></textarea>
+        </div>
+      </div>
+      <div class="" id="getShow">
+      </div>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>M App</title>
+  </head>
+  <body class="font-circular -tracking-tighter">
+    <div class="main mx-auto px-4 w-full sm:px-8 tablet:px-16 desktop:px-32 max-w-[1600px] desktop:relative">
+      <!-- nav bar -->
+      <div
+        class="hidden tablet:block shadow-[120px_140px_2000px_95px_rgb(255,87,34)] size-0 bg-red-200 absolute left-[-2%] desktop:hidden"
+      ></div>
+      <!-- in tablet and desktop-->
+       <div class="hidden tablet:flex justify-between py-8">
+        <a class="size-12 flex justify-center items-center desktop:hidden" href="#">
+          <img class="size-10" src="./public/menu.svg" alt="" />
+        </a>
+        <a href="#" class="flex gap-4 font-black text-2xl leading-10">
+          <img class="size-10" src="./public/logo.svg" alt="" />
+          <p>Travlog</p>
+        </a>
+        <div class="items-center gap-x-16 hidden desktop:flex text-appgray/50 font-medium">
+          <a class="text-appgray font-bold" href="#">Home</a><a href="#">Discover</a><a href="#">Special Deals</a><a href="#">Contact</a>
+        </div>
+        <div class="flex gap-x-2">
+          <button class="py-4 px-8 font-bold text-sm rounded-[100px] text-[#222831]">Log In</button>
+          <button class="py-4 px-8 font-medium text-sm bg-appBlue rounded-[100px] text-white">Sign Up</button>
+        </div>
+       </div>
+     <!-- in mobile -->
+     <div class="py-8 flex justify-between tablet:hidden">
+      <a href="#" class="flex gap-4 font-black text-2xl leading-10">
+        <img class="size-10" src="./public/logo.svg" alt="" />
+        <p>Travlog</p>
+      </a>
+      <a class="size-12 flex justify-center items-center" href="#">
+        <img class="size-10" src="./public/menu.svg" alt="" />
+      </a>
+     </div>
+      <!-- section 1 -->
+      <section class="grid gap-y-8 py-8 tablet:py-16 desktop:grid-cols-3">
+        <!-- pictures-->
+        <div
+          class="relative w-full h-[87vw] max-h-[713px] !max-w-[772px] mx-auto desktop:col-start-2 desktop:col-end-4"
+        >
+          <img
+            class="w-full !max-w-[772px] mx-auto"
+            src="./public/background.svg"
+            alt=""
+          />
+          <!-- 3 pictures -->
+          <div
+            class="flex gap-x-4 items-center w-[75%] absolute top-[10.5%] left-[12%] !max-w-[575px] tablet:gap-x-8"
+          >
+            <div class="grid gap-y-4 w-full tablet:gap-y-8">
+              <div class="w-full relative">
+                <img
+                  class="w-full sm:!max-w-[272px]"
+                  src="public/Rectangle 1.png"
+                  alt=""
+                />
+                <button
+                  class="flex justify-center items-center rounded-full bg-appPink w-[7.4vw] h-[7.4vw] max-w-[64px] max-h-[64px] absolute bottom-[-9%] left-[-11%] shadow-appShadow"
+                >
+                  <img class="size-[50%]" src="public/telegram.svg" alt="" />
+                </button>
+              </div>
+              <img
+                class="w-full sm:!max-w-[272px]"
+                src="public/Rectangle 2.png"
+                alt=""
+              />
+            </div>
+            <!-- number 3 picture -->
+            <div class="w-full relative">
+              <img
+                class="w-full sm:!max-w-[272px]"
+                src="public/Rectangle 3.png"
+                alt=""
+              />
+
+              <button
+                class="flex gap-x-1 justify-center items-center font-bold rounded-l-full bg-white w-[20vw] h-[6.6vw] max-w-[166px] max-h-[56px] absolute bottom-[13%] right-[-33%] shadow-[-2px_15px_30px_-7px_rgba(57,57,57)]"
+              >
+                <img class="w-[15%]" src="public/location.svg" alt="" />
+                <p class="text-[8px] sm:text-[14px]">Top Place</p>
+              </button>
+              <button
+                class="flex gap-x-1 justify-center items-center rounded-full bg-appOrang w-[7.4vw] h-[7.4vw] max-w-[64px] max-h-[64px] absolute bottom-[-29%] right-[50%] shadow-appShadow"
+              >
+                <img class="size-[50%]" src="public/contact.svg" alt="" />
+              </button>
+            </div>
+          </div>
+        </div>
+            <!-- text -->
+            <div
+              class="flex items-center flex-col gap-y-4 tablet:w-[600px] mx-auto desktop:col-start-1 desktop:col-end-2 desktop:row-start-1 self-center desktop:w-[394px] desktop:gap-y-[43px] "
+            >
+              <button
+                class="flex px-8 py-4 text-sm gap-x-4 items-center font-medium text-appPink rounded-full shadow-2xl"
+              >
+                Explore the world!
+                <img src="public/bag.svg" alt="" />
+              </button>
+              <h1
+                class="font-bold text-[40px] leading-[48px] text-center px-2 tablet:text-[56px] tablet:leading-[62px] desktop:text-[69px] desktop:leading-[82px] desktop:px-0"
+              >
+                Travel <span class="text-appPink">top destination</span> of the
+                world
+              </h1>
+              <p class="text-appgray/50 text-center px-2 text-lg">
+                We always make our customer happy by providing as many choices as
+                possible
+              </p>
+              <!-- thow button in desktop show-->
+          <div
+          class="desktop:flex flex-col relative gap-y-6 tablet:!flex-row tablet:justify-center tablet:gap-x-4 hidden"
+        >
+          <button
+            class="text-white bg-appBlue px-8 py-7 rounded-full text-sm shadow-2xl tablet:h-[56px] tablet:py-4"
+          >
+            Get Started
+          </button>
+          <button
+            class="flex gap-x-2 justify-center items-center px-8 py-7 bg-white rounded-full text-sm font-bold border tablet:h-[56px]"
+          >
+            <img class="pb-1" src="public/play.svg" alt="" />Watch Demo
+          </button>
+          <img
+            class="hidden tablet:block absolute left-[-115px] bottom-[-210px]"
+            src="public/arrows.svg"
+            alt=""
+          />
+        </div>
+            </div>
+          <div
+            class="flex flex-col relative gap-y-6 tablet:!flex-row tablet:justify-center tablet:gap-x-4 desktop:hidden"
+          >
+            <button
+              class="text-white bg-appBlue px-8 py-7 rounded-full text-sm shadow-2xl tablet:h-[56px] tablet:py-4"
+            >
+              Get Started
+            </button>
+            <button
+              class="flex gap-x-2 justify-center items-center px-8 py-7 bg-white rounded-full text-sm font-bold border tablet:h-[56px]"
+            >
+              <img class="pb-1" src="public/play.svg" alt="" />Watch Demo
+            </button>
+            <img
+              class="hidden tablet:block absolute left-[-30px] bottom-[-30px]"
+              src="public/arrows.svg"
+              alt=""
+            />
+          </div>
+        <!-- </div>       -->
+      </section>
+      <!-- brand -->
+      <div
+        class="py-8 text-appgray/50 flex justify-center gap-y-8 gap-x-7 flex-wrap mx-auto tablet:w-[570px] tablet:relative desktop:w-[1184px] desktop:justify-between desktop:py-16"
+      >
+        <img
+          class="tablet:h-[32px] tablet:w-[211px]"
+          src="public/brands/1.svg"
+          alt=""
+        />
+        <img
+          class="tablet:h-[32px] tablet:w-[113px]"
+          src="public/brands/2.svg"
+          alt=""
+        />
+        <img
+          class="tablet:h-[32px] tablet:w-[188px]"
+          src="public/brands/3.svg"
+          alt=""
+        />
+        <img
+          class="tablet:h-[32px] tablet:w-[102px]"
+          src="public/brands/4.svg"
+          alt=""
+        />
+        <img
+          class="tablet:h-[32px] tablet:w-[174px]"
+          src="public/brands/5.svg"
+          alt=""
+        />
+        <div
+          class="hidden tablet:block shadow-[90px_140px_2000px_95px_rgb(251,169,64)] size-0 bg-red-200 absolute right-[-30vw] desktop:right-[-10vw] "
+        ></div>
+      </div>
+      <!-- section 2 -->
+      <section class="grid py-8 gap-y-8 text-center  desktop:flex desktop:py-16 desktop:overflow-auto ">
+        <!-- div 1 -->
+        <div class="flex flex-col gap-y-4 text-left justify-center ">
+          <p
+            class="text-appPink -tracking-[-0.3rem] font-bold tablet:!text-2xl" 
+          >
+            SERVICES
+          </p>
+          <h2 class="text-3.5xl font-bold text-[#191825] tablet:!text-[40px] desktop:w-[444px]">
+            Our top value categories for you
+          </h2>
+        </div>
+        <!-- div 2 inclue 3 cards-->
+        <div class="grid gap-y-4 tablet:grid-cols-3 tablet:gap-x-4 desktop:flex">
+          <div
+            class="flex flex-col items-center gap-y-8 p-8 border rounded-[32px] tablet:p-16 tablet:gap-y-16 desktop:w-[350px]"
+          >
+            <img src="public/section 2/1.svg" alt="" />
+            <div class="flex flex-col justify-center gap-y-8">
+              <h2 class="font-bold text-2xl leading-7">Best Tour Guide</h2>
+              <p class="text-appgray/50 text-lg px-1">
+                What looked like a small patch of purple grass, above five feet.
+              </p>
+            </div>
+          </div>
+          <div
+            class="flex flex-col items-center gap-y-8 p-8 border rounded-[32px] shadow-lg tablet:p-16 tablet:gap-y-16 desktop:w-[350px]"
+          >
+            <img src="public/section 2/2.svg" alt="" />
+            <div class="flex flex-col justify-center gap-y-8">
+              <h2 class="font-bold text-2xl leading-7">Easy Booking</h2>
+              <p class="text-appgray/50 text-lg px-1">
+                Square, was moving across the sand in their direction.
+              </p>
+            </div>
+          </div>
+          <div
+            class="flex flex-col items-center gap-y-8 p-8 border rounded-[32px] tablet:p-16 tablet:gap-y-16 desktop:w-[350px] "
+          >
+            <img src="public/section 2/3.svg" alt="" />
+            <div class="flex flex-col justify-center gap-y-8">
+              <h2 class="font-bold text-2xl leading-7">Weather Forecast</h2>
+              <p class="text-appgray/50 text-lg px-1">
+                What looked like a small patch of purple grass, above five feet.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- section 3 -->
+      <section class="grid gap-y-8 py-8 desktop:py-16 desktop:gap-y-16">
+        <!-- div 1  -->
+        <div class="flex flex-col gap-y-8 desktop:flex-row desktop:justify-between ">
+          <div class="flex flex-col gap-y-4 items-center desktop:items-start">
+            <p
+              class="text-appPink -tracking-[-0.3rem] font-bold tablet:!text-2xl "
+            >
+              TOP DESTINATION
+            </p>
+            <h2 class="font-bold text-3.5xl tablet:!text-[40px]">
+              Explore top destinaion
+            </h2>
+          </div>
+          <div
+            class="flex justify-between tablet:justify-center tablet:gap-x-8"
+          >
+            <button
+              class="bg-white size-16 border rounded-full flex justify-center items-center tablet:size-[100px]"
+            >
+              <img
+                class="tablet:size-6"
+                src="public/section 3/arrow left.svg"
+                alt=""
+              />
+            </button>
+            <button
+              class="bg-appBlue size-16 border rounded-full flex justify-center items-center shadow-appShadow tablet:size-[100px]"
+            >
+              <img
+                class="tablet:size-6"
+                src="public/section 3/arrow right.svg"
+                alt=""
+              />
+            </button>
+          </div>
+        </div>
+        <!-- div 2 include 3 cards -->
+        <div class="grid gap-y-8 tablet:grid-cols-3 tablet:gap-x-8 mx-auto">
+          <div class="shadow-2xl rounded-b-[32px] mx-auto max-w-[373px]">
+            <img class="w-full" src="public/section 3/pic 1.png" alt="" />
+            <div class="flex flex-col p-8 gap-y-8 w-[398px] tablet:w-auto">
+              <div class="flex flex-col gap-y-4 text-2xl flex-wrap">
+                <p class="text-appPink font-bold flex pl-[-5px]">
+                  <img
+                    class="w-5"
+                    src="public/section 2/dollar.svg"
+                    alt=""
+                  />550.16
+                </p>
+                <p class="font-bold leading-7">
+                  Paradise Beach, Bantayan Island
+                </p>
+                <p class="text-lg text-appgray/75">Rome, Italy</p>
+              </div>
+              <p class="flex gap-x-2 font-bold text-2xl text-appOrang">
+                4.8 <img src="public/section 2/star.svg" alt="" />
+              </p>
+            </div>
+          </div>
+          <div class="shadow-2xl rounded-b-[32px] mx-auto max-w-[373px]">
+            <img
+              class="tablet:h-[21vw] w-full max-h-[294px] tablet:w-[373px]"
+              src="public/section 3/pic 2.png"
+              alt=""
+            />
+            <div class="flex flex-col p-8 gap-y-8">
+              <div class="flex flex-col gap-y-4 text-2xl">
+                <p class="text-appPink font-bold flex pl-[-5px]">
+                  <img
+                    class="w-5"
+                    src="public/section 2/dollar.svg"
+                    alt=""
+                  />20.99
+                </p>
+                <p class="font-bold leading-7">Ocean with full of Colors</p>
+                <p class="text-lg text-appgray/75">Maldives</p>
+              </div>
+              <p class="flex gap-x-2 font-bold text-2xl text-appOrang">
+                4.5 <img src="public/section 2/star.svg" alt="" />
+              </p>
+            </div>
+          </div>
+          <div class="shadow-2xl rounded-b-[32px] mx-auto max-w-[373px]">
+            <img src="public/section 3/pic 3.png" alt="" />
+            <div class="flex flex-col p-8 gap-y-8 w-[398px] tablet:w-auto">
+              <div class="flex flex-col gap-y-4 text-2xl">
+                <p class="text-appPink font-bold flex pl-[-5px]">
+                  <img
+                    class="w-5"
+                    src="public/section 2/dollar.svg"
+                    alt=""
+                  />150.99
+                </p>
+                <p class="font-bold leading-7">
+                  Mountain View, Above the cloud
+                </p>
+                <p class="text-lg text-appgray/75">United Arab Emeries</p>
+              </div>
+              <p class="flex gap-x-2 font-bold text-2xl text-appOrang">
+                5 <img src="public/section 2/star.svg" alt="" />
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- section 4 -->
+      <section class="grid gap-y-16 py-8 tablet:p-16 tablet:px-8 desktop:flex desktop:py-16 desktop:px-0 desktop:absolute desktop:left-0">
+        <!-- for desktop -->
+         <div class="absolute right-[-120px] top-[300px] hidden desktop:block">
+          <img src="public/section 4/yellow in desktop.svg" alt="">
+         </div>
+         <!-- end -->
+        <img class="w-full desktop:w-[862px]" src="public/section 4/pic.png" alt="" />
+        <!-- text and rate -->
+        <div class="grid gap-y-8 desktop:h-[667px] desktop:mt-10 desktop:gap-y-16">
+          <!-- text -->
+          <div class="flex flex-col gap-y-8 text-center desktop:text-left desktop:w-[441px] ">
+            <div class="flex flex-col gap-y-4">
+              <p
+                class="text-appPink -tracking-[-0.3rem] font-bold tablet:!text-2xl"
+              >
+                TRAVEL POINT
+              </p>
+              <h2
+                class="text-3.5xl font-bold text-[#191825] tablet:!text-[40px] tablet:leading-[52px]"
+              >
+                We helping you find your dream location
+              </h2>
+            </div>
+            <p class="text-appgray/50 tablet:text-lg desktop:tracking-normal desktop:pr-12">
+              Contrary to popular belief, Lorem Ipsum is not simply random text.
+              It has roots in a piece of classical Latin literature from 45 BC.
+            </p>
+          </div>
+          <!-- rate -->
+          <div class="flex flex-col gap-y-4 tablet:flex-row tablet:gap-8">
+            <div class="flex flex-col gap-y-4 tablet:gap-y-8 w-full">
+              <div
+                class="flex flex-col items-center p-8 gap-y-4 font-bold text-4xl text-appOrang border rounded-[32px]"
+              >
+                500+
+                <span class="text-appgray text-lg font-light tracking-tight"
+                  >Holiday Package</span
+                >
+              </div>
+              <div
+                class="flex flex-col items-center p-8 gap-y-4 font-bold text-4xl text-appOrang border rounded-[32px]"
+              >
+                100
+                <span class="text-appgray text-lg font-light tracking-tight"
+                  >Luxury Hotel</span
+                >
+              </div>
+            </div>
+            <div class="flex flex-col gap-y-4 tablet:gap-y-8 w-full">
+              <div
+                class="flex flex-col items-center p-8 gap-y-4 font-bold text-4xl text-appOrang border rounded-[32px]"
+              >
+                7
+                <span class="text-appgray text-lg font-light tracking-tight"
+                  >Premium Airlines</span
+                >
+              </div>
+              <div
+                class="flex flex-col items-center p-8 gap-y-4 font-bold text-4xl text-appOrang border rounded-[32px]"
+              >
+                2k+
+                <span class="text-appgray text-lg font-light tracking-tight"
+                  >Happy Customer</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- section 5 -->
+      <section class="grid gap-y-16 p-8 tablet:py-16 desktop:mt-[826px] desktop:px-0 desktop:flex desktop:gap-x-[70px] desktop:absolute desktop:right-0">
+        <img
+          class="w-full max-w-[693px] mx-auto desktop:order-1"
+          src="public/section 5/pic.png"
+          alt=""
+        />
+        <!-- text and svgs -->
+        <div class="grid gap-y-8 desktop:w-[550px] ">
+          <!-- text -->
+          <div class="flex flex-col gap-y-8 h-fit text-center desktop:text-start">
+            <div class="flex flex-col gap-y-4">
+              <p
+                class="text-appPink -tracking-[-0.3rem] font-bold tablet:!text-2xl"
+              >
+                KEY FEATURES
+              </p>
+              <h2
+                class="text-[31px] leading-[28.4px] font-bold text-[#191825] tablet:!text-[40px] tablet:leading-[52px]"
+              >
+                We offer best services
+              </h2>
+            </div>
+            <p class="text-appgray/50 tracking-wider tablet:text-lg">
+              Contrary to popular belief, Lorem Ipsum is not simply random text.
+              It has roots in a piece of classical Latin literature from 45 BC.
+            </p>
+          </div>
+          <!-- svgs -->
+          <div class="flex flex-col gap-y-2">
+            <div class="flex flex-col gap-y-8 p-8 tablet:flex-row tablet:gap-x-8">
+              <div
+                class="size-[100px] bg-appOrang rounded-[32px] flex justify-center items-center"
+              >
+                <img src="public/section 5/location.svg" alt="" />
+              </div>
+              <div class="flex flex-col gap-y-2 tablet:self-center">
+                <h2 class="text-2xl leading-7 font-bold text-[#191825]">
+                  We offer best services
+                </h2>
+                <p class="text-appgray/50 tracking-wide text-lg">
+                  Lorem Ipsum is not simply random text
+                </p>
+              </div>
+            </div>
+            <div class="flex flex-col gap-y-8 p-8 border rounded-[32px] tablet:flex-row tablet:gap-x-8">
+              <div
+                class="size-[100px] bg-[rgba(250,205,73,1)] rounded-[32px] flex justify-center items-center"
+              >
+                <img src="public/section 5/calender.svg" alt="" />
+              </div>
+              <div class="flex flex-col gap-y-2 tablet:self-center">
+                <h2 class="text-2xl leading-7 font-bold text-[#191825]">
+                  Schedule your trip
+                </h2>
+                <p class="text-appgray/50 tracking-wide text-lg">
+                  It has roots in a piece of classical
+                </p>
+              </div>
+            </div>
+            <div class="flex flex-col gap-y-8 p-8 tablet:flex-row tablet:gap-x-8">
+              <div
+                class="size-[100px] bg-appPink rounded-[32px] flex justify-center items-center"
+              >
+                <img src="public/section 5/copon.svg" alt="" />
+              </div>
+              <div class="flex flex-col gap-y-2 tablet:self-center">
+                <h2 class="text-2xl leading-7 font-bold text-[#191825]">
+                  Get discounted coupons
+                </h2>
+                <p class="text-appgray/50 tracking-wide text-lg">
+                  Lorem Ipsum is not simply random text
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- vector -->
+      <div class="absolute left-[-10px] mt-[-220px] -z-10 hidden tablet:block desktop:mt-[1350px]">
+        <img class="w-[100vw] opacity-15 " src="public/Vector.svg" alt="" />
+      </div>
+      <!-- section 6 -->
+      <section class="flex flex-col gap-y-16 py-8 tablet:flex-row tablet:py-16 desktop:mt-[1760px]">
+        <!-- botton in tablet show -->
+        <button
+          class="bg-white size-[100px] border rounded-full hidden justify-center items-center tablet:flex self-center"
+        >
+          <img class="size-6" src="public/section 3/arrow left.svg" alt="" />
+        </button>
+        <!-- main -->
+        <div class="grid gap-y-16 tablet:w-[584px] mx-auto">
+          <!-- text -->
+          <div class="flex flex-col gap-y-4 items-center">
+            <p
+              class="text-appPink -tracking-[-0.3rem] font-bold tablet:!text-2xl"
+            >
+              TESTIMONIALS
+            </p>
+            <h2 class="text-3.5xl font-bold text-[#191825] tablet:!text-[40px]">
+              Trust our clients
+            </h2>
+          </div>
+          <!-- image and star -->
+          <div class="flex justify-center">
+            <img src="public/section 6/person.png" alt="" />
+          </div>
+          <div class="flex flex-col items-center gap-y-8">
+            <div
+              class="font-bold text-[23px] leading-[27.6px] text-appgray/75 tablet:text-[28px]"
+            >
+              <span class="text-appOrang text-[28px] leading-[33.6px]"
+                >Mark Smith</span
+              >/Travel Enthusiast
+            </div>
+            <div class="flex gap-x-4">
+              <img src="public/section 6/star.svg" alt="" />
+              <img src="public/section 6/star.svg" alt="" />
+              <img src="public/section 6/star.svg" alt="" />
+              <img src="public/section 6/star.svg" alt="" />
+              <img src="public/section 6/star.svg" alt="" />
+            </div>
+          </div>
+          <p class="text-appgray/75 tracking-wider text-center tablet:text-2xl">
+            Contrary to popular belief, Lorem Ipsum is not simply random text.
+            It has roots in a piece of classical Latin literature from 45 BC.
+          </p>
+          <div class="flex gap-x-6 justify-center">
+            <div class="size-6 rounded-full bg-appgray/5"></div>
+            <div class="size-6 rounded-full bg-appPink"></div>
+            <div class="size-6 rounded-full bg-appgray/5"></div>
+          </div>
+        </div>
+        <!-- button in tablet show -->
+        <button
+          class="bg-appBlue size-[100px] border rounded-full hidden self-center justify-center items-center shadow-appShadow tablet:flex"
+        >
+          <img class="size-6" src="public/section 3/arrow right.svg" alt="" />
+        </button>
+        <!-- arrow -->
+        <div class="flex justify-between tablet:hidden">
+          <button
+            class="bg-white size-16 border rounded-full flex justify-center items-center"
+          >
+            <img src="public/section 3/arrow left.svg" alt="" />
+          </button>
+          <button
+            class="bg-appBlue size-16 border rounded-full flex justify-center items-center shadow-appShadow"
+          >
+            <img src="public/section 3/arrow right.svg" alt="" />
+          </button>
+        </div>
+      </section>
+      <!-- section 7 -->
+      <section
+        class="grid gap-y-16 py-16 px-8 rounded-[32px] bg-[#FACD49]/[0.10] relative tablet:py-32 tablet:px-16 tablet:my-16"
+      >
+        <div class="hidden tablet:block absolute top-[-70px] left-[-30px]">
+          <img src="public/triangle.svg" alt="" />
+        </div>
+        <div class="flex flex-col gap-y-8 text-center">
+          <p
+            class="text-appPink -tracking-[-0.3rem] font-bold tablet:!text-2xl"
+          >
+            SUBSCRIBE TO OUR NEWSLETTER
+          </p>
+          <h2 class="text-3.5xl font-bold text-[#191825] tablet:!text-[40px] desktop:!text-[55px] desktop:px-8 desktop:leading-[66px]">
+            Prepare yourself & let’s explore the beauty of the world
+          </h2>
+        </div>
+        <div class="flex flex-col gap-y-8 tablet:flex-row tablet:gap-x-8">
+          <div class="px-8 py-6 rounded-2xl bg-white flex gap-x-4 flex-grow">
+            <img class="size-6 tablet:self-center tablet:size-8" src="public/message.svg" alt="" />
+            <input
+              class="placeholder-appgray font-bold "
+              type="email"
+              name="emial"
+              placeholder="Your Email"
+            />
+          </div>
+          <button class="bg-appBlue py-6 px-16 rounded-2xl text-white tablet:text-2xl tablet:py-8">
+            Subscribe
+          </button>
+        </div>
+      </section>
+      <!-- section 8 -->
+      <div class="hidden tablet:block absolute right-[0vw] mt-[-85px] desktop:mt-[-200px]">
+        <img src="public/OBJECTS.svg" alt="" />
+      </div>
+      <section class="grid gap-y-16 py-8 tablet:py-16 relative desktop:grid-cols-2 desktop:gap-x-16" >
+        <div class="grid gap-y-8">
+          <a href="#" class="flex gap-4 font-black text-2xl leading-10 ">
+            <img class="size-10" src="./public/logo.svg" alt="" />
+            <p>Travlog</p>
+          </a>
+          <p class="text-appgray/50 text-base tracking-normal pr-6 leading-7 tablet:text-2xl tablet:pr-16 desktop:pr-0" >
+            Contrary to popular belief, Lorem Ipsum is not simply random text.
+            It has roots in a piece of classical Latin literature from 45 BC.
+          </p>
+          <div class="flex gap-x-8">
+            <img src="public/section 8/facebook.svg" alt="" />
+            <img src="public/section 8/twiter.svg" alt="" />
+            <img src="public/section 8/instagram.svg" alt="" />
+          </div>
+        </div>
+        <div class="grid gap-y-16 tablet:hidden">
+          <div class="flex justify-between font-bold text-2xl leading-7">
+            Company
+            <img src="public/section 8/arrow-circle-down.svg" alt="" />
+          </div>
+          <div class="flex justify-between font-bold text-2xl leading-7">
+            Contact Us
+            <img src="public/section 8/arrow-circle-down.svg" alt="" />
+          </div>
+          <div class="flex justify-between font-bold text-2xl leading-7">
+            Meet Us
+            <img src="public/section 8/arrow-circle-down.svg" alt="" />
+          </div>
+        </div>
+        <!-- in tablet and desktop -->
+         <div class="hidden tablet:flex gap-x-8 justify-between">
+          <div class="flex flex-col gap-y-8">
+            <h2 class="font-bold text-2xl">Company</h2>
+            <p class="text-appgray/75 text-lg">About</p>
+            <p class="text-appgray/75 text-lg">Career</p>
+            <p class="text-appgray/75 text-lg">Mobile</p>
+          </div>
+          <div class="flex flex-col gap-y-8">
+            <h2 class="font-bold text-2xl">Contact</h2>
+            <p class="text-appgray/75 text-lg">why Travlog?</p>
+            <p class="text-appgray/75 text-lg">Partner with us</p>
+            <p class="text-appgray/75 text-lg">FAQ's</p>
+            <p class="text-appgray/75 text-lg">Blog</p>
+          </div>
+          <div class="flex flex-col gap-y-8">
+            <h2 class="font-bold text-2xl">Meet Us</h2>
+            <p class="text-appgray/75 text-lg">+00 92 1234 56789</p>
+            <p class="text-appgray/75 text-lg">info@travlog.com</p>
+            <p class="text-appgray/75 text-lg">205. R Street, New York </p>
+            <p class="text-appgray/75 text-lg">BD23200</p>
+          </div>
+         </div>
+      </section>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
