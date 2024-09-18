@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + TS</title>
+  </head>
+  <body>
+    <div id="main" class="max-w-[400px] max-h-[600px] mt-6 mx-auto border-4 border-green-800 relative">
+      <div id="mainSection" class=" ">
+        <h2 class="text-center pb-3 border-b-2 border-b-black mb-6 font-bold">Todo list</h2>
+        <form class="flex justify-center" id="addTodoForm">
+          <input class="border-2 border-black border-r-0 pl-2" type="text" placeholder="Enter todo..." required>
+          <button type="submit" class="bg-blue-700 p-2 text-white border-2 border-black" id="addTodo">Add</button>
+        </form>
+        <div id="content" class="px-3 mt-6 flex flex-col gap-y-8 h-[400px] overflow-y-auto pb-4">
+        </div>
+      </div>
+      <div id="modal">
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
