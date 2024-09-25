@@ -11,7 +11,8 @@ export default {
       },
       colors : {
         grayApp : "#b1b1b1",
-        grayPApp : "#828282"
+        grayPApp : "#828282",
+        goldApp : "#bd9531"
       }
     },
   },

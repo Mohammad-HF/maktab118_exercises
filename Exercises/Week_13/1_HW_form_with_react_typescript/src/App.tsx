@@ -10,7 +10,7 @@ function App() {
       {/* Header */}
       <Header content={(tf)=>setHideContent(tf)}/>
       {/* main section */}
-      <div className={`px-28 max-md:px-10 pt-20 flex gap-28 justify-center items-center max-md:flex-col ${hideContent ? "hidden" : ""}`}>
+      <div className={`px-28 max-md:px-10 pt-20 flex gap-28 justify-center items-center max-md:flex-col ${hideContent ? "max-md:hidden" : ""}`}>
         {/* left */}
         <ContactUs/>
         {/* right */}
