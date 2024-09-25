@@ -12,7 +12,7 @@ export default function Header() {
        return <p className="text-nowrap grow" key={obj.id}>{obj.text}</p>
     })
   return (
-    <div className="bg-grayApp px-28 flex gap-x-28 justify-center py-4 items-center mx-auto max-md:justify-between">
+    <div className="bg-grayApp px-28 max-md:px-10 flex gap-x-28 justify-center py-4 items-center mx-auto max-md:justify-between">
       <h2 className="text-grayApp text-xl font-semibold ">LOGO</h2>
       <div className="text-grayPApp text-sm font-normal flex gap-x-6 grow max-w-[597px] max-md:hidden">
         {linksEl}
