@@ -21,7 +21,7 @@ export default function Offices() {
           collectValue : (input)=> saveInput(input)
     }
   return (
-    <div className="flex flex-col gap-y-12 max-w-[30%] max-md:w-[300px] max-md:max-w-full">
+    <div className="flex flex-col gap-y-12 max-w-[267px] max-md:w-[300px] max-md:max-w-full">
       <div className="flex flex-col gap-y-4 text-xs text-grayPApp">
         <h2 className="font-bold text-black/65 text-sm">Offices</h2>
         <p>

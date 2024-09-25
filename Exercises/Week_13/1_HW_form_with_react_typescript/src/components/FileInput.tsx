@@ -23,6 +23,7 @@ export default function FileInput({collectValue}:{collectValue : CollectValue}) 
       e.preventDefault();
       setFile("");
       setSrcFile("");
+      collectValue("");
       setBorderC("border-gray-400/70");
     }
     return (
