@@ -1,5 +1,6 @@
 import { useState } from "react";
-import Input, { FileInput } from "./Input";
+import Input from "./Input";
+import FileInput from "./FileInput";
 import Button from "./Button";
 
 export default function Form(): JSX.Element {
@@ -21,7 +22,10 @@ export default function Form(): JSX.Element {
     let valuesArray: string[] = Object.values(submitForm);
     // two solution
     valuesArray = valuesArray.filter((x) => x !== "");
-    if (value !== "" && valuesArray.length === 9 && submitForm[input] === "") {
+    if (
+      (value !== "" && valuesArray.length === 9 && submitForm[input] === "") ||
+      (valuesArray.length === 10 && value !== "")
+    ) {
       setDisableButton(false);
     } else setDisableButton(true);
     // one solution(not work)
