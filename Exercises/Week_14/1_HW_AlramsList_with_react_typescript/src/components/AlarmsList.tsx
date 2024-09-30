@@ -3,7 +3,13 @@ import Alarm from "./Alarm";
 
 export default function AlarmsList({alarmData}:{alarmData : IAllValues | undefined}){
     const [alarmsList , setAlarmsList] = useState<IAllValues[]>();
-    const alarmsEl = alarmsList?.map((alarm,index)=><Alarm key={index} {...alarm} />);
+    const alarmsEl = alarmsList?.map((alarm,index)=><Alarm key={index} {...alarm} removeItem={()=>{removeAlarm(index)}}/>);
+    const removeAlarm = (id : number) =>{
+        setAlarmsList(alarmsList?.filter(( _ , index ) => {
+           return index !== id
+        }))
+    }
+
     // solution one
 //    if(alarmData && alarmData !== alarmsList?.[alarmsList.length -1])  setAlarmsList([...(alarmsList ? alarmsList : [] ) , alarmData])
 

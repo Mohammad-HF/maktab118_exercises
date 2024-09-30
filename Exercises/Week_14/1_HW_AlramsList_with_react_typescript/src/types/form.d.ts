@@ -11,3 +11,4 @@ interface IAllValues {
     time : string;
 }
 type SendData = (form : IAllValues)=>void
+type RemoveItem = ()=>void
