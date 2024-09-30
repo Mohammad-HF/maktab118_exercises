@@ -10,3 +10,4 @@ interface IAllValues {
     description : string;
     time : string;
 }
+type SendData = (form : IAllValues)=>void

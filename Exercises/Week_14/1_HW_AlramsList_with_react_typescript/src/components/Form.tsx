@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Input from "./Input";
 
-export default function Form() {
+export default function Form({sendData} : {sendData : SendData}) {
   const [allValues, setAllValues] = useState<IAllValues>({
     title: "",
     description: "",
@@ -67,7 +67,7 @@ export default function Form() {
   const onSubmitHandler : React.FormEventHandler<HTMLFormElement> = (e ) =>{
     e.preventDefault();
     if(data[2].validator(allValues["time"])) return alert(data[2].validator(allValues["time"]));
-    
+    sendData(allValues);
     
   }
   useEffect(() => {
