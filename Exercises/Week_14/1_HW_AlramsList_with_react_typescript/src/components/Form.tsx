@@ -76,7 +76,6 @@ export default function Form({sendData} : {sendData : SendData}) {
       return;
     }
     setDisableSubmit(Object.values(allValues).includes(""));
-    console.log(allValues);
   }, [allValues]);
   return (
     <form className="flex flex-col gap-y-5 py-5 px-4 bg-skyBlueApp rounded-md" onSubmit={onSubmitHandler}>
