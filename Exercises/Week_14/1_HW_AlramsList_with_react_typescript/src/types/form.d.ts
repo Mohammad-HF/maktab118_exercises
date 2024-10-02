@@ -15,9 +15,9 @@ interface IAllValues {
 type SendData = (form : IAllValues)=>void
 type RemoveItem = ()=>void
 type EditItem = (title : string , desc : string , time : string)=>void
-type ChangeShowModal = ()=> void
+type ChangeShowModal = (offTiem? : boolean )=> void
 
-type ShowModal = "edit" | "delete" | "false"
+type ShowModal = "edit" | "delete" | "false" | "editTime"
 interface IEditValues {
     title : string;
     description : string;
