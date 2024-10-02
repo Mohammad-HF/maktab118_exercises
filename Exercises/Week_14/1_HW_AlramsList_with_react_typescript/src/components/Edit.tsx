@@ -8,8 +8,8 @@ export default function Edit({
   changeShowModal,
 }: {
   rOrE: "remove" | "edit";
-  dataAlarm: { title: string; desc: string };
-  removeOrEdit: () => void | ((title : string , desc :string)=>void);
+  dataAlarm: { title: string; desc: string; time : string};
+  removeOrEdit: () => void | EditItem;
   changeShowModal: ChangeShowModal;
 }) {
     const [disableEdit , setDisableEidt] = useState<boolean>(false);
@@ -126,7 +126,7 @@ export default function Edit({
                     <span className="pl-2 text-white/90">{dataAlarm.title}</span>
                   </h3>
                   <div className="flex flex-col gap-y-3 pt-4 ">
-                    <label htmlFor="title">Title Alarm</label>
+                    <label >Title Alarm</label>
                     <Input
                       value={dataAlarm.title}
                       placeHolder="Alarm title"
@@ -140,7 +140,7 @@ export default function Edit({
                         setValue("title", input);
                       }}
                     />
-                    <label htmlFor="desc">Description Alarm</label>
+                    <label >Description Alarm</label>
                     <Input
                       value={dataAlarm.desc}
                       type= "text"
@@ -161,7 +161,7 @@ export default function Edit({
             <div className="bg-blueApp_1 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
             <button
                 onClick={() => {
-                  removeOrEdit()!(allValues.title , allValues.description)
+                  removeOrEdit()!(allValues.title , allValues.description , dataAlarm.time)
                   changeShowModal();
                 }}
                 disabled = {disableEdit}

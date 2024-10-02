@@ -14,7 +14,7 @@ interface IAllValues {
 }
 type SendData = (form : IAllValues)=>void
 type RemoveItem = ()=>void
-type EditItem = (title : string , desc : string)=>void
+type EditItem = (title : string , desc : string , time : string)=>void
 type ChangeShowModal = ()=> void
 
 type ShowModal = "edit" | "delete" | "false"

@@ -10,8 +10,8 @@ export default function AlarmsList({alarmData}: {alarmData: IAllValues | undefin
       removeItem={() => {
         removeAlarm(index);
       }}
-      editItem={(title: string, desc: string) => {
-        editAlarm(index, title, desc);
+      editItem={(title: string, desc: string ,time : string) => {
+        editAlarm(index, title, desc, time);
       }}
     />
   ));
@@ -22,10 +22,11 @@ export default function AlarmsList({alarmData}: {alarmData: IAllValues | undefin
       })
     );
   };
-  const editAlarm = (id: number, title: string, desc: string) => {
+  const editAlarm = (id: number, title: string, desc: string , time: string) => {
     const list: IAllValues[] = [...alarmsList!];
     list[id].title = title;
     list[id].description = desc;
+    list[id].time = time
     setAlarmsList(list);
   };
 

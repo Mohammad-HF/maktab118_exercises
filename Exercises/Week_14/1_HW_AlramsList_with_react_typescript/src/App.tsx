@@ -6,7 +6,7 @@ function App() {
   const [data , setData] = useState<IAllValues>();
   
   return (
-    <div className=" grid gap-y-8 max-w-[800px] mx-auto pt-10">
+    <div className=" grid gap-y-8 max-w-[800px] mx-auto px-4 pt-10">
       <Form sendData={(form)=>{setData(form)}}/>
       
        <AlarmsList alarmData={data}/>

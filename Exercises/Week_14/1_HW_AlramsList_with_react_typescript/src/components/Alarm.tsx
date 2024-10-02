@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Edit from "./Edit";
 
 export default function Alarm({title,description,time,removeItem,editItem}: IAllValues & { removeItem: RemoveItem , editItem : EditItem}) {
@@ -6,15 +6,23 @@ export default function Alarm({title,description,time,removeItem,editItem}: IAll
 
     let editEl : JSX.Element | undefined;
     if(showModal === "edit") {
-     editEl =  <Edit rOrE="edit" dataAlarm={{title : title , desc : description}} removeOrEdit={()=>editItem} changeShowModal={()=>showModalChange("false")} />
+     editEl =  <Edit rOrE="edit" dataAlarm={{title : title , desc : description , time : time}} removeOrEdit={()=>editItem} changeShowModal={()=>showModalChange("false")} />
     }else if(showModal === "delete"){
-     editEl =  <Edit rOrE="remove" dataAlarm={{title : title , desc : description}} removeOrEdit={removeItem} changeShowModal={()=>showModalChange("false")}/>
+     editEl =  <Edit rOrE="remove" dataAlarm={{title : title , desc : description , time : time}} removeOrEdit={removeItem} changeShowModal={()=>showModalChange("false")}/>
     } else editEl = undefined;
   
     const showModalChange = (which : ShowModal)=>{
         setShowModal(which)
     }
-
+    useEffect(()=>{
+      const secounds = Number(time.split(":")[0]) * 3600 + Number(time.split(":")[1]) * 60;
+      let nowTime : Date | number = new Date();
+      nowTime = nowTime.getHours() * 3600 + nowTime.getMinutes() * 60 + nowTime.getSeconds();
+      const remainder = (secounds - nowTime )* 1000 ;
+      setTimeout(()=>{
+        console.log("execute",remainder);
+       }, remainder)
+    },[time])
   return (
     <>
     <div className="flex m-5 border-2 bg-white/95 border-white px-2  rounded-md border-r-2 shadow-lg shadow-blueApp_1">

@@ -11,7 +11,6 @@ export default function Form({sendData} : {sendData : SendData}) {
   const setValue = (name: string, value: string) => {
     setAllValues({ ...allValues, [name]: value });
   };
-  const [firstTimeLoading, setFirstTimeLoading] = useState<boolean>(true);
   const data: IData[] = [
     {
       id: 1,
@@ -71,10 +70,6 @@ export default function Form({sendData} : {sendData : SendData}) {
     
   }
   useEffect(() => {
-    if (firstTimeLoading) {
-      setFirstTimeLoading(false);
-      return;
-    }
     setDisableSubmit(Object.values(allValues).includes(""));
   }, [allValues]);
   return (
