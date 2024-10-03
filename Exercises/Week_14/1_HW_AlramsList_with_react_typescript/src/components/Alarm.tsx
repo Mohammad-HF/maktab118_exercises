@@ -48,8 +48,6 @@ export default function Alarm({
   };
   
   useEffect(() => {
-    console.log("44");
-    
     const secounds =
       Number(time.split(":")[0]) * 3600 + Number(time.split(":")[1]) * 60;
     let nowTime: Date | number = new Date();
@@ -58,14 +56,16 @@ export default function Alarm({
       nowTime.getMinutes() * 60 +
       nowTime.getSeconds();
     const remainder = (secounds - nowTime) * 1000;
-    setTimeout(() => {
+    if(remainder <=0 ) return
+   const timer = setTimeout(() => {
       console.log("execute", remainder);
       setShowModal("editTime");
     }, remainder);
+    return ()=> clearTimeout(timer);
   }, [time]);
   return (
     <>
-      <div className={`flex items-center m-5 border-2 ${offAlarm ? "bg-gray-300/90" : "bg-white/95"} bg-white/95 border-white px-2  rounded-md border-r-2 shadow-lg shadow-blueApp_1`}>
+      <div className={`flex items-center m-5 border-2 ${offAlarm ? "bg-gray-300/75" : "bg-white/95"} border-white px-2  rounded-md border-r-2 shadow-lg shadow-blueApp_1`}>
         <h2 className="font-bold text-xl max-sm:text-base max-sm:px-3 border-r-2 py-4 text-wrap pr-6 grow">{title}</h2>
         <p className="font-bold text-2xl max-sm:text-base max-sm:px-3 border-r-2 py-4 px-6">{time}</p>
         <div className="flex gap-x-3 py-4 max-sm:px-3 flex-wrap max-sm:justify-center max-sm:gap-y-1 max-sm:py-2  pr-4 font-bold pl-6">
