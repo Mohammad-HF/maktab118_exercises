@@ -31,15 +31,18 @@ export default function AlarmsList({alarmData}: {alarmData: IAllValues | undefin
     setAlarmsList(list);
   };
 
-  const onClickHandler = (id : number)=>{
-    if(id === 1 && id !== sort){
-      setSort(1)
-      const newList = alarmsList?.sort((a,b)=>{ return a.title.localeCompare(b.title) })
-      setAlarmsList(newList);
-    } else if(id === 2 && id !== sort){
-      setSort(2)
-      const newList = alarmsList?.sort((a,b)=>{ return a.time.localeCompare(b.time) })
-      setAlarmsList(newList)
+  const onClickHandler = (id : number, auto : boolean = false,newlist? : IAllValues[])=>{
+    if(id === 1 && (id !== sort || auto === true)){
+      if(id !== sort) setSort(1)
+      const newList2 = newlist ? newlist.sort((a,b)=>{ return a.title.localeCompare(b.title)}) 
+       : alarmsList?.sort((a,b)=>{ return a.title.localeCompare(b.title) })
+      setAlarmsList(newList2);
+      
+    } else if(id === 2 && (id !== sort || auto === true)){
+      if(id !== sort) setSort(2)
+      const newList2 = newlist ? newlist.sort((a,b)=>{ return a.time.localeCompare(b.time)}) 
+      : alarmsList?.sort((a,b)=>{ return a.time.localeCompare(b.time) })
+      setAlarmsList(newList2)
     }
   }
 
@@ -48,8 +51,15 @@ export default function AlarmsList({alarmData}: {alarmData: IAllValues | undefin
 
   // solution two
   useEffect(() => {
-    if (alarmData)
-      setAlarmsList([...(alarmsList ? alarmsList : []), alarmData]);
+    if (alarmData){
+      if(sort === 0){
+        setAlarmsList([...(alarmsList ? alarmsList : []), alarmData]);
+      }else {
+        const newList : IAllValues[] = [...(alarmsList ? alarmsList : [])]
+        newList.push(alarmData)
+        onClickHandler(sort,true,newList)
+      }
+    }
   }, [alarmData]);
   return (
     <div className="grid gap-y-7 bg-skyBlueApp border-2 border-white rounded-md min-w-[288px]">
