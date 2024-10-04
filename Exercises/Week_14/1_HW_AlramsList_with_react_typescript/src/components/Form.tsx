@@ -3,13 +3,17 @@ import Input from "./Input";
 
 export default function Form({sendData} : {sendData : SendData}) {
   const [allValues, setAllValues] = useState<IAllValues>({
+    id : "",
     title: "",
     description: "",
     time: "",
   });
   const [disableSubmit, setDisableSubmit] = useState<boolean>(true);
-  const setValue = (name: string, value: string) => {
-    setAllValues({ ...allValues, [name]: value });
+  const setValue = (name: keyof IAllValues , value: string) => {
+    const newValues = {...allValues};
+    newValues[name] = value
+   allValues.id === "" && (newValues.id = crypto.randomUUID());
+   setAllValues(newValues);  
   };
   const data: IData[] = [
     {
@@ -60,13 +64,16 @@ export default function Form({sendData} : {sendData : SendData}) {
   ];
  
   const inputsEl = data.map((item) => {
-    return <Input key={item.id} {...item} />;
+    let value;
+      if(item.id ===1) { value = allValues.title} else if(item.id === 2) { value = allValues.description} else  { value = allValues.time }
+    return <Input key={item.id} {...item} value={ value}/>;
   });
 
   const onSubmitHandler : React.FormEventHandler<HTMLFormElement> = (e ) =>{
     e.preventDefault();
     if(data[2].validator(allValues["time"])) return alert(data[2].validator(allValues["time"]));
     sendData(allValues);
+    setAllValues({ id : "", title: "", description: "", time: "",})
     
   }
   useEffect(() => {

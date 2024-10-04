@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Input({
   placeHolder,
@@ -25,7 +25,11 @@ export default function Input({
     }
     setInputValue(e.target.value)
   };
-
+  // for empty input after submit
+  useEffect(()=>{
+    if(value === "" && value !== inputValue)
+    setInputValue(value)
+  },[value])
   return (
     <div>
       <input

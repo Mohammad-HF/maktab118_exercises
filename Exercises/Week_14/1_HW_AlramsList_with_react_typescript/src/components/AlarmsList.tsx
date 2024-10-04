@@ -6,7 +6,7 @@ export default function AlarmsList({alarmData}: {alarmData: IAllValues | undefin
   const [sort , setSort] = useState<number>(0);
   const alarmsEl = alarmsList?.map((alarm, index) => (
     <Alarm
-      key={index}
+      key={alarm.id}
       {...alarm}
       removeItem={() => {
         removeAlarm(index);

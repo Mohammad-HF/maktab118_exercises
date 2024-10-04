@@ -8,6 +8,7 @@ interface IData {
 type Validator = (input : string) => string | undefined;
 type collectValue = (input : string) => void;
 interface IAllValues {
+    id : string
     title : string;
     description : string;
     time : string;
