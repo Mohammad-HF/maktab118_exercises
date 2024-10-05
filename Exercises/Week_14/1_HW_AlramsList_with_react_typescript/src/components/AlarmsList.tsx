@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Alarm from "./Alarm";
+import { getStorage, setStorage } from "../utils/storage-managment";
 
 export default function AlarmsList({alarmData}: {alarmData: IAllValues | undefined}) {
   const [alarmsList, setAlarmsList] = useState<IAllValues[]>();
@@ -17,11 +18,9 @@ export default function AlarmsList({alarmData}: {alarmData: IAllValues | undefin
     />
   ));
   const removeAlarm = (id: number) => {
-    setAlarmsList(
-      alarmsList?.filter((_, index) => {
-        return index !== id;
-      })
-    );
+    const list = alarmsList?.filter((_, index) => {return index !== id;});
+    setAlarmsList(list);
+    list && setStorage(list)
   };
   const editAlarm = (id: number, title: string, desc: string , time: string) => {
     const list: IAllValues[] = [...alarmsList!];
@@ -29,6 +28,7 @@ export default function AlarmsList({alarmData}: {alarmData: IAllValues | undefin
     list[id].description = desc;
     list[id].time = time
     setAlarmsList(list);
+    setStorage(list);
   };
 
   const onClickHandler = (id : number, auto : boolean = false,newlist? : IAllValues[])=>{
@@ -37,12 +37,14 @@ export default function AlarmsList({alarmData}: {alarmData: IAllValues | undefin
       const newList2 = newlist ? newlist.sort((a,b)=>{ return a.title.localeCompare(b.title)}) 
        : alarmsList?.sort((a,b)=>{ return a.title.localeCompare(b.title) })
       setAlarmsList(newList2);
+      newList2 && setStorage(newList2)
       
     } else if(id === 2 && (id !== sort || auto === true)){
       if(id !== sort) setSort(2)
       const newList2 = newlist ? newlist.sort((a,b)=>{ return a.time.localeCompare(b.time)}) 
       : alarmsList?.sort((a,b)=>{ return a.time.localeCompare(b.time) })
       setAlarmsList(newList2)
+      newList2 && setStorage(newList2)
     }
   }
 
@@ -51,9 +53,14 @@ export default function AlarmsList({alarmData}: {alarmData: IAllValues | undefin
 
   // solution two
   useEffect(() => {
+    if(alarmData === undefined && alarmsList === undefined ) {
+      setAlarmsList(getStorage());
+    }
     if (alarmData){
       if(sort === 0){
-        setAlarmsList([...(alarmsList ? alarmsList : []), alarmData]);
+        const newList : IAllValues[] = [...(alarmsList ? alarmsList : []), alarmData]
+        setAlarmsList(newList);
+        setStorage(newList);
       }else {
         const newList : IAllValues[] = [...(alarmsList ? alarmsList : [])]
         newList.push(alarmData)
