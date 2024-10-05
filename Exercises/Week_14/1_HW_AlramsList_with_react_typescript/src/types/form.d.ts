@@ -12,10 +12,11 @@ interface IAllValues {
     title : string;
     description : string;
     time : string;
+    isOff : boolean;
 }
 type SendData = (form : IAllValues)=>void
 type RemoveItem = ()=>void
-type EditItem = (title : string , desc : string , time : string)=>void
+type EditItem = (title : string , desc : string , time : string , offAlarm? : boolean)=>void
 type ChangeShowModal = (offTiem? : boolean )=> void
 
 type ShowModal = "edit" | "delete" | "false" | "editTime"

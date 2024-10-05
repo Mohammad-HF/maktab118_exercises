@@ -269,7 +269,9 @@ export default function Edit({
                 Delete Alarm
               </button>
               <button
-                onClick={()=>{changeShowModal(true)}}
+                onClick={()=>{
+                  removeOrEdit()!(dataAlarm.title, dataAlarm.desc, dataAlarm.time,true);
+                  changeShowModal()}}
                 type="button"
                 className="mt-3 inline-flex w-full justify-center rounded-md border-white hover:text-white shadow-blue-300/60 shadow-lg bg-gray-300/80 hover:bg-grayApp/50 px-3 py-2 text-sm font-semibold text-gray-900 border-2 sm:mt-0 sm:w-auto"
               >

@@ -7,9 +7,10 @@ export default function Form({sendData} : {sendData : SendData}) {
     title: "",
     description: "",
     time: "",
+    isOff:false
   });
   const [disableSubmit, setDisableSubmit] = useState<boolean>(true);
-  const setValue = (name: keyof IAllValues , value: string) => {
+  const setValue = (name: keyof Omit<IAllValues,"isOff" | "id">  , value: string) => {
     const newValues = {...allValues};
     newValues[name] = value
    allValues.id === "" && (newValues.id = crypto.randomUUID());
@@ -73,7 +74,7 @@ export default function Form({sendData} : {sendData : SendData}) {
     e.preventDefault();
     if(data[2].validator(allValues["time"])) return alert(data[2].validator(allValues["time"]));
     sendData(allValues);
-    setAllValues({ id : "", title: "", description: "", time: "",})
+    setAllValues({ id : "", title: "", description: "", time: "",isOff:false})
     
   }
   useEffect(() => {
