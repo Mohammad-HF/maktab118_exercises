@@ -17,7 +17,12 @@ interface IAllValues {
 type SendData = (form : IAllValues)=>void
 type RemoveItem = ()=>void
 type EditItem = (title : string , desc : string , time : string , offAlarm? : boolean)=>void
-type ChangeShowModal = (offTiem? : boolean )=> void
+type ChangeShowModal = ()=> void
+interface IDataAlarm{
+    title: string; 
+    desc: string; 
+    time: string
+}
 
 type ShowModal = "edit" | "delete" | "false" | "editTime"
 interface IEditValues {
