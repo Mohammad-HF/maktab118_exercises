@@ -9,6 +9,9 @@ export default {
       colors : {
         appGreen : "#1d3932",
         appCream : "#eac8a4",
+      },
+      screens : {
+        xs : "450px"
       }
     },
   },
