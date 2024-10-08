@@ -15,9 +15,9 @@ export default function Coffee({
         <h3 className="text-white">{name}</h3>
         <h2 className="text-appCream text-lg font-bold">${price}</h2>
         <div className={`flex justify-center items-center ${title === "Bill" && "hidden"}`}>
-          <FaPlus onClick={(e)=>onClickHandler(e,name)} data-change="plus" className="bg-appCream cursor-pointer p-2 size-7" />
+          <FaPlus onClick={(e)=>onClickHandler(e,name,price)} data-change="plus" className="bg-appCream cursor-pointer p-2 size-7" />
           <p className="bg-white px-3 py-[2px] h-7">{quantity}</p>
-          <FaMinus onClick={(e)=>onClickHandler(e,name)} data-change="minus" className="bg-appCream cursor-pointer p-2 size-7" />
+          <FaMinus onClick={(e)=>onClickHandler(e,name,price)} data-change="minus" className="bg-appCream cursor-pointer p-2 size-7" />
         </div>
         <h3 className={`text-white font-semibold ${title !== "Bill" && "hidden"}`}>Qty : {quantity}</h3>
       </div>

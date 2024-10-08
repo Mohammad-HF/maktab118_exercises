@@ -5,10 +5,12 @@ export default function CoffeesList({
   title,
   onClickHandler,
   coffeesQty,
+  totalPrice,
 }: {
   title: string;
   onClickHandler: OnClickHandler;
-  coffeesQty : IValues
+  coffeesQty: IValues;
+  totalPrice?: number;
 }) {
   return (
     <div className="my-2">
@@ -20,13 +22,29 @@ export default function CoffeesList({
               key={index}
               {...el}
               quantity={coffeesQty[el.name]}
-              price={title ==="Bill" ? el.price * coffeesQty[el.name] : el.price}
+              price={
+                title === "Bill" ? el.price * coffeesQty[el.name] : el.price
+              }
               title={title}
-              onClickHandler={(e, qtyName) => onClickHandler(e, qtyName)}
+              onClickHandler={onClickHandler}
             />
           );
         })}
       </div>
+      {title === "Bill" && (
+        <>
+          <h2 className="text-appGreen font-semibold text-lg text-center my-1">
+            Total: ${totalPrice}
+          </h2>
+          <button
+            onClick={() => console.log(totalPrice)}
+            className="w-full text-white bg-appCream font-bold py-1 rounded-md hover:bg-appCream/80 disabled:bg-appCream disabled:opacity-50"
+            disabled={totalPrice === 0 ? true : false}
+          >
+            Submit Order
+          </button>
+        </>
+      )}
     </div>
   );
 }
