@@ -5,10 +5,12 @@ import { NotFound } from "./pages/NotFund";
 import { ErrorBoundary } from "./components/ErrorBoundary";
 import { Home } from "./pages/Home";
 import { UserInfo } from "./pages/UserInfo";
+import { MainTemplate } from "./templates/MainTemplate";
 
 export const router = createBrowserRouter([
   {
     errorElement: <ErrorBoundary />,
+    element : <MainTemplate/>,
     children: [
       { path: "/", element: <Home/> },
       {

@@ -8,7 +8,8 @@ export default {
     extend: {
       colors : {
         appGreen : "#9dbcab",
-        appWhite : "#ccd5d5"
+        appWhite : "#ccd5d5",
+        appBlue : "#101729"
       },
       backgroundColor : {
         appTeal : "#184e4a"

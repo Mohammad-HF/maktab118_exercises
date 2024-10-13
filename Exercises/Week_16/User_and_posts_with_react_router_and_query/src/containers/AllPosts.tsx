@@ -7,6 +7,7 @@ export const AllPosts: React.FC = () => {
   const allPosts = useQuery({
     queryKey: ["fetch-all-posts"],
     queryFn: fetchPosts,
+    enabled : !AllPosts.length
   });
 
   useEffect(() => {
