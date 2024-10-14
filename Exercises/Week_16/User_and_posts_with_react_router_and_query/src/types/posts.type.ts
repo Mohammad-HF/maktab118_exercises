@@ -3,7 +3,7 @@ export interface IPost {
   title: string;
   body: string;
   tags: string[];
-  reaction: {
+  reactions: {
     likes: number;
     dislikes: number;
   };

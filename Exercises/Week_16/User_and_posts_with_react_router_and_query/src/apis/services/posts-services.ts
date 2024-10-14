@@ -14,3 +14,9 @@ export const fetchPosts: FetchPosts = async (skip) => {
   const response = await httpClient().get<IPostsResDTo>(urls.posts.list,{params:params});
   return response.data;
 };
+
+type FetchPost = (id:number)=>Promise<IPost>
+export const fetchPost: FetchPost = async (id)=>{
+  const response = await httpClient().get<IPost>(urls.posts.info(id))
+  return response.data;
+}

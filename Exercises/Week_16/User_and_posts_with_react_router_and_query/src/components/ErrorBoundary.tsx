@@ -3,7 +3,7 @@ import { Navigate, UNSAFE_ErrorResponseImpl, useRouteError } from "react-router-
 export const ErrorBoundary: React.FC = () => {
     const error = useRouteError();
   
-    if ((error as UNSAFE_ErrorResponseImpl).status === 404) {
+    if ((error as UNSAFE_ErrorResponseImpl ).status === 404 || (error as Error).message === "id isnot valid") {
       return <Navigate to={"/404"} />;
     }
   

@@ -45,7 +45,7 @@ export const AllPosts: React.FC = () => {
             : "No more data"}
         </button>
       </div>
-      <div className={`${allPosts.isPending ? "block" : "hidden"}`}>
+      <div className={`${allPosts.isPending ? "block" : "hidden"} text-appWhite`}>
         <h1>is loading ...</h1>
       </div>
     </div>

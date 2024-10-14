@@ -6,6 +6,7 @@ import { ErrorBoundary } from "./components/ErrorBoundary";
 import { Home } from "./pages/Home";
 import { UserInfo } from "./pages/UserInfo";
 import { MainTemplate } from "./templates/MainTemplate";
+import { PostInfo } from "./pages/PostInfo";
 
 export const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ export const router = createBrowserRouter([
       {
         path: "posts",
         element: <Posts />,
+      },
+      {
+        path: "post-info/:id",
+        element: <PostInfo />,
       },
       {
         path: "users",
