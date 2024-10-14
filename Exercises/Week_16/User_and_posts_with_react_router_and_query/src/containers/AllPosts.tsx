@@ -38,8 +38,8 @@ export const AllPosts: React.FC = () => {
           // onClick={() => allPosts.fetchNextPage()}
           className="py-2 px-1 rounded-md font-bold text-appBlue border-2 mt-2 block mx-auto bg-appGreen"
         >
-          {allPosts.isFetchingNextPage
-            ? "Fetching next page"
+          {allPosts.isFetching
+            ? "Fetching page"
             : allPosts.hasNextPage
             ? "Fetch More Data"
             : "No more data"}
