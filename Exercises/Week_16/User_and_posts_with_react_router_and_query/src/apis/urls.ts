@@ -5,5 +5,8 @@ export const urls = {
     },
     comments : {
         byPost : (id : number)=> `/comments/post/${id}`,
+    },
+    users : {
+        list : "/users"
     }
 }

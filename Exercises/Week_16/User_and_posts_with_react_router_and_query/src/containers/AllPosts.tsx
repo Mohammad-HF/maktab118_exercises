@@ -8,7 +8,7 @@ export const AllPosts: React.FC = () => {
   const [ref, inView] = useInView();
   const allPosts = useInfiniteQuery({
     refetchOnWindowFocus: false,
-    refetchOnMount : false,
+    // refetchOnMount : false,
     queryKey: ["fetch-all-posts"],
     queryFn: (skip) => fetchPosts(skip.pageParam),
     initialPageParam: 0,
