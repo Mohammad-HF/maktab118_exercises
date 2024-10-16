@@ -20,3 +20,10 @@ export const fetchPost: FetchPost = async (id)=>{
   const response = await httpClient().get<IPost>(urls.posts.info(id))
   return response.data;
 }
+
+type FetchPostsByUser = (id : number,skip : number)=> Promise<IPostsResDTo>
+export const fetchPostsByUser : FetchPostsByUser = async (id,skip)=>{
+  const params : params = {skip : skip , limit : 10}
+  const response = await httpClient().get<IPostsResDTo>(urls.posts.byUser(id),{params:params})
+  return response.data;
+}
