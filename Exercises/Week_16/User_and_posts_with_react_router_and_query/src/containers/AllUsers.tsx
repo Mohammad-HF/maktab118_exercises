@@ -33,15 +33,15 @@ export const AllUsers: React.FC = () => {
       <div>
         <button
           ref={ref}
-          // disabled={!allUsers.hasNextPage || allUsers.isFetchingNextPage}
-          // onClick={() => allUsers.fetchNextPage()}
+          disabled={!allUsers.hasNextPage || allUsers.isFetchingNextPage}
+          onClick={() => allUsers.fetchNextPage()}
           className="py-2 px-1 rounded-md font-bold text-appBlue border-2 mt-2 block mx-auto bg-appGreen"
         >
           {allUsers.isFetching
-            ? "Fetching page"
+            ? "Fetching more user"
             : allUsers.hasNextPage
-            ? "Fetch More Data"
-            : "No more data"}
+            ? "Fetch More User"
+            : "No more user"}
         </button>
       </div>
       <div className={`${allUsers.isPending ? "block" : "hidden"} text-appWhite`}>
