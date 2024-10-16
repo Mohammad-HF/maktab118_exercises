@@ -15,3 +15,9 @@ export const fetchUsers: fetchUsers = async (skip) => {
   });
   return response.data;
 };
+
+type FetchUser = (id : number)=> Promise<IUser>
+export const fetchUser : FetchUser = async (id)=>{
+const response = await httpClient().get<IUser>(urls.users.info(id))
+return response.data
+}

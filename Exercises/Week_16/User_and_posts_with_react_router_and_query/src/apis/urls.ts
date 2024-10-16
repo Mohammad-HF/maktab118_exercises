@@ -7,6 +7,7 @@ export const urls = {
         byPost : (id : number)=> `/comments/post/${id}`,
     },
     users : {
-        list : "/users"
+        list : "/users",
+        info : (id : number)=> `/users/${id}`
     }
 }
