@@ -11,6 +11,7 @@ export default function Input({ info }: { info: IData }) : ReactNode {
       setError("");
        info.collectValue(e.target.value);
     }
+    console.log(e.target.value);
     
     // !error ? info.collectValue(e.target.value) : info.collectValue("");
     setValue(e.target.value);
