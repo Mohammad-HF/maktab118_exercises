@@ -1,13 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDebounce } from "../hooks/useDebounce";
+import { fetchLatAndLng } from "../apis/opencage.api";
+import { IResult } from "../types/opencage";
 
-export const Input: React.FC = () => {
+export const Input: React.FC<{cbData : (d : IResult[] | [])=>void}> = ( {cbData} ) => {
   const [input, setInput] = useState<string>("");
   const [lastValue] = useDebounce(input);
   console.log(lastValue);
   const changeHandler: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     setInput(e.target.value);
   };
+
+  const response = async () => {
+    const data = await fetchLatAndLng(lastValue);
+    console.log(data.results);
+    cbData(data.results)
+  };
+
+  useEffect(() => {
+    if (lastValue) response();
+  }, [lastValue]);
   return (
     <>
       <h2 className="text-2xl font-semibold text-blue-950">
