@@ -20,7 +20,7 @@ export const PostListHome: React.FC = () => {
           return <PostHome key={post.id} {...post} />
         })}
       </div>
-      <div className="mt-10 grid  max-w-[500px] mx-auto md:max-w-full gap-6 md:gap-10 md:grid-cols-2 lg:gap-10 xl:grid-cols-3 ">
+      <div className="mt-6 md:mt-10 grid  max-w-[500px] mx-auto md:max-w-full gap-6 md:gap-10 md:grid-cols-2 lg:gap-10 xl:grid-cols-3 ">
         {posts.data?.posts.slice(2, 10).map((post) => {
           return <PostHome key={post.id} {...post} />;
         })}

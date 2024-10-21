@@ -44,7 +44,7 @@ export const PostInfo: React.FC = () => {
               <FaEye className="size-4 " />
             </div>
           </div>
-          <div className="flex gap-x-2 items-center text-appWhite border w-fit px-2 py-1 bg-appBlue ml-2 rounded-md">
+          <div className="flex flex-wrap gap-x-2 items-center text-appWhite border w-fit px-2 py-1 bg-appBlue ml-2 rounded-md">
             <FaHashtag className="size-5" />
             {post.data?.tags.map((el) => (
               <p key={el}> {el}</p>
