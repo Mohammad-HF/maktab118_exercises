@@ -3,10 +3,12 @@ import { useDebounce } from "../hooks/useDebounce";
 import { fetchLatAndLng } from "../apis/opencage.api";
 import { IResult } from "../types/opencage";
 
-export const Input: React.FC<{cbData : (d : IResult[] | [])=>void}> = ( {cbData} ) => {
+export const Input: React.FC<{ cbData: (d: IResult[] | []) => void }> = ({
+  cbData,
+}) => {
   const [input, setInput] = useState<string>("");
   const [lastValue] = useDebounce(input);
-  console.log(lastValue);
+  const [error, setError] = useState<boolean>(false);
   const changeHandler: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     setInput(e.target.value);
   };
@@ -14,7 +16,8 @@ export const Input: React.FC<{cbData : (d : IResult[] | [])=>void}> = ( {cbData}
   const response = async () => {
     const data = await fetchLatAndLng(lastValue);
     console.log(data.results);
-    cbData(data.results)
+    data.results.length === 0 ? setError(true) : setError(false);
+    cbData(data.results);
   };
 
   useEffect(() => {
@@ -31,6 +34,9 @@ export const Input: React.FC<{cbData : (d : IResult[] | [])=>void}> = ( {cbData}
         type="text"
         className="focus:outline-blue-950 focus:outline-2 focus:outline rounded-md px-2 py-1 mt-2"
       />
+      <p className={`text-red-500 pt-1 ${!error && "hidden"}`} >
+        data is not available
+      </p>
     </>
   );
 };
