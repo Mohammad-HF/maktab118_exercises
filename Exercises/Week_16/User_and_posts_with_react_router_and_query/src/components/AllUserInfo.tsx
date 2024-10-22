@@ -4,13 +4,16 @@ import { fetchUser } from "../apis/services/users-service";
 import { FaMapLocationDot } from "react-icons/fa6";
 import { MdOutlineMail, MdPhoneIphone } from "react-icons/md";
 import { BiFemale, BiMale } from "react-icons/bi";
+import { AxiosError } from "axios";
 
 export const AllUserInfo: React.FC = () => {
   const { id } = useParams();
   const user = useQuery({
     queryKey: ["user-info", id],
     queryFn: () => fetchUser(Number(id)),
+    retry : 1
   });
+  if(user.error as AxiosError) throw new Error("id isnot valid");
   return (
     <div className={` ${user.isPending && "hidden"}`}>
       <div className="flex flex-col gap-y-4 border-b border-b-appGray py-2 pb-4">
