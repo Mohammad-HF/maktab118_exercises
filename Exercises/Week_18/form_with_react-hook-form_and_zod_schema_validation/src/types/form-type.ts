@@ -1,0 +1,22 @@
+export interface IForm{
+    fullName : string;
+    gender : string;
+    dateOfBirth : string;
+    placeOfBirth : string;
+    nationality : string;
+    religion : string;
+    residenceStatus : string;
+    maritalStatus : string;
+    nationalIdNo : number;
+    tinNo : number;
+    address : string;
+    city : string;
+    state : string;
+    zipCode : number;
+    country : string;
+    phone : number;
+    email : string;
+    serviceName : string;
+    paymentDetail : string;
+    comments : string;
+}
