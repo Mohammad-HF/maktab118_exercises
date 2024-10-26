@@ -22,6 +22,7 @@ interface IWind {
   gust: number;
 }
 type TimeZone = number;
+type Name = string;
 
 export interface IWeatherResDto {
   weather: IWeather[];
@@ -29,4 +30,5 @@ export interface IWeatherResDto {
   visibility: Visibility;
   wind: IWind;
   timezone: TimeZone;
+  name : Name;
 }

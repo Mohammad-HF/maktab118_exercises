@@ -10,7 +10,7 @@ export interface IGeometry {
   lat: number;
   lng: number;
 }
-export const Weather: React.FC<{ formatted: string; geo: IGeometry }> = ({
+export const Weather: React.FC<{ formatted?: string; geo: IGeometry }> = ({
   formatted,
   geo,
 }) => {
@@ -37,7 +37,12 @@ export const Weather: React.FC<{ formatted: string; geo: IGeometry }> = ({
   },[weather])
   
   const getWeatherData = async () => {
-    setWeather(await fetchWeatherData(geo));
+    try {
+      setWeather(await fetchWeatherData(geo));
+    } catch (error) {
+      setWeather(undefined)
+    }
+    
   };
   useEffect(() => {
     getWeatherData();
@@ -46,7 +51,7 @@ export const Weather: React.FC<{ formatted: string; geo: IGeometry }> = ({
     !!weather && (
       <div className="max-w-[1600px] min-w-[330px] mx-auto border-2 border-white p-4 mt-2">
         <h2 className="text-2xl font-semibold text-blue-950 pb-4">
-          Result for : <span className="text-teal-800">{formatted}</span>{" "}
+          Result for : <span className="text-teal-800">{formatted ? formatted : weather.name}</span>{" "}
           <button
             onClick={() => setReload(!reload)}
             className="hover:text-teal-800 text-white align-middle mb-1 active:animate-spin"
