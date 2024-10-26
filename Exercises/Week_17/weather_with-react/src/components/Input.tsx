@@ -9,7 +9,6 @@ export const Input: React.FC<{ cbData: (d: IResult[] | []) => void }> = memo(({
   const [input, setInput] = useState<string>("");
   const [lastValue] = useDebounce(input);
   const [error, setError] = useState<boolean>(false);
-  console.log(lastValue);
   
   const changeHandler: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     setInput(e.target.value);
@@ -30,6 +29,7 @@ export const Input: React.FC<{ cbData: (d: IResult[] | []) => void }> = memo(({
 
   useEffect(() => {
     if (lastValue) response();
+    setInput("")
   }, [lastValue]);
   return (
     <>
