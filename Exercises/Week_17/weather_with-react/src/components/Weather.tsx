@@ -3,10 +3,10 @@ import { IWeatherResDto } from "../types/openweather";
 import { TbReload, TbTemperatureCelsius } from "react-icons/tb";
 import { WiHumidity } from "react-icons/wi";
 import { MdVisibility } from "react-icons/md";
-import { useEffect, useState } from "react";
-import { fetchWeatherData } from "../apis/openther.api";
+import { useEffect, useMemo, useState } from "react";
+import { fetchWeatherData } from "../apis/opentweather.api";
 
-interface IGeometry {
+export interface IGeometry {
   lat: number;
   lng: number;
 }
@@ -16,7 +16,8 @@ export const Weather: React.FC<{ formatted: string; geo: IGeometry }> = ({
 }) => {
   const [weather, setWeather] = useState<IWeatherResDto>();
   const [reload, setReload] = useState<boolean>(false);
-  const date = new Date();
+  const dateAndDay = useMemo(()=>{
+    const date = new Date();
   const diff = date.getTimezoneOffset() * 60000;
   const utc = date.getTime() + diff;
   if (!!weather) {
@@ -32,6 +33,9 @@ export const Weather: React.FC<{ formatted: string; geo: IGeometry }> = ({
     "Friday",
     "Saturday",
   ];
+  return {date , day}
+  },[weather])
+  
   const getWeatherData = async () => {
     setWeather(await fetchWeatherData(geo));
   };
@@ -84,9 +88,9 @@ export const Weather: React.FC<{ formatted: string; geo: IGeometry }> = ({
                 </div>
               </div>
               <div>
-                {day[date.getDay()]},{" "}
-                {date.getHours().toString().padStart(2, "0")}:
-                {date.getMinutes().toString().padStart(2, "0")}
+                {dateAndDay.day[dateAndDay.date.getDay()]},{" "}
+                {dateAndDay.date.getHours().toString().padStart(2, "0")}:
+                {dateAndDay.date.getMinutes().toString().padStart(2, "0")}
               </div>
             </div>
           </div>

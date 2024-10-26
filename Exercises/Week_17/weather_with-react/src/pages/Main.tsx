@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Input } from "../components/Input";
 import { IResult } from "../types/opencage";
 import { Weather } from "../components/Weather";
+import { Map } from "../components/map";
+
 export const Main: React.FC = () => {
   const [dataServer, setDataServer] = useState<IResult[] | []>([]);
 
@@ -9,11 +11,20 @@ export const Main: React.FC = () => {
     setDataServer(data);
   };
   return (
-    <div className="h-screen bg-appblue ">
+    <div className="min-h-screen bg-appblue ">
       <div className="max-w-[1600px] min-w-[330px] mx-auto border-2 border-white p-4">
         <Input cbData={dataLatAndLng} />
       </div>
-        {dataServer.length > 0 && <Weather formatted={dataServer[0].formatted} geo={dataServer[0].geometry}/>}
-      </div>
+      {dataServer.length > 0 && (
+        <Weather
+          formatted={dataServer[0].formatted}
+          geo={dataServer[0].geometry}
+        />
+      )}
+      <Map
+        geo={dataServer.length && dataServer[0].geometry}
+        formatted={dataServer.length ? dataServer[0].formatted : ""}
+      />
+    </div>
   );
 };

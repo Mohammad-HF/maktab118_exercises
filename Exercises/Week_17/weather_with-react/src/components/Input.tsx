@@ -9,15 +9,23 @@ export const Input: React.FC<{ cbData: (d: IResult[] | []) => void }> = ({
   const [input, setInput] = useState<string>("");
   const [lastValue] = useDebounce(input);
   const [error, setError] = useState<boolean>(false);
+  console.log(lastValue);
+  
   const changeHandler: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     setInput(e.target.value);
   };
 
   const response = async () => {
-    const data = await fetchLatAndLng(lastValue);
-    console.log(data.results);
-    data.results.length === 0 ? setError(true) : setError(false);
-    cbData(data.results);
+    try {
+      
+      const data = await fetchLatAndLng(lastValue);
+      console.log(data.results);
+      data.results.length === 0 ? setError(true) : setError(false);
+      cbData(data.results);
+    } catch (error) {
+      setError(true)
+      cbData([]);
+    }
   };
 
   useEffect(() => {
