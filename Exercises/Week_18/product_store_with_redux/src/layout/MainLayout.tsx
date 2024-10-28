@@ -1,4 +1,4 @@
-import { Header } from "../components/Header";
+import { Header } from "../components/header/Header";
 
 export const MainLayout: React.FC<{
   children: JSX.Element | JSX.Element[];
@@ -6,7 +6,7 @@ export const MainLayout: React.FC<{
   return (
     <>
       <Header />
-      <div className="pt-20"></div>
+      <div className="pt-28 xs:pt-20"></div>
       {children}
     </>
   );

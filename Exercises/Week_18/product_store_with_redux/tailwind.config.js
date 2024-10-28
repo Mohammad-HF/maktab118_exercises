@@ -5,6 +5,9 @@ export default {
     extend: {
       colors : {
         appGray : "#343a40"
+      },
+      screens : {
+        xs : "480px"
       }
     },
   },

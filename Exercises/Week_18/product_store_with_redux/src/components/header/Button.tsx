@@ -1,5 +1,5 @@
-import { useAppSelector } from "../redux/hooks";
-import { selectIdOfCard } from "../redux/selectors/selectIdOfCard";
+import { useAppSelector } from "../../redux/hooks";
+import { selectIdOfCard } from "../../redux/selectors/selectIdOfCard";
 
 interface IClickButton {
   add: () => void;
@@ -8,7 +8,6 @@ interface IClickButton {
 }
 export const Button: React.FC<IClickButton> = ({ add, remove, id }) => {
   const cardListId: number[] = useAppSelector(selectIdOfCard);
-console.log("11",id);
 
 
   const changeButton: React.MouseEventHandler<HTMLButtonElement> = () => {

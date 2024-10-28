@@ -1,6 +1,6 @@
 import { IoStarHalfOutline } from "react-icons/io5";
 import { IProducts } from "../types/products.type";
-import { Button } from "./Button";
+import { Button } from "./header/Button";
 import { useDispatch } from "react-redux";
 import { cardAction } from "../redux/features/cardSlice";
 
