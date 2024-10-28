@@ -36,7 +36,7 @@ export const ProductCard: React.FC<IProducts> = ({
       <p className="text-sm">
         available qty : <span className="font-semibold">{stock}</span>
       </p>
-      <Button add={addToCard} remove={removeOfCard} />
+      <Button add={addToCard} remove={removeOfCard} id={id}/>
     </div>
   );
 };

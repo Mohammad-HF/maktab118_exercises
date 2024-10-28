@@ -1,9 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchProducts } from "../apis/products.api";
 import { ProductCard } from "../components/ProductCard";
-import { memo } from "react";
 
-export const AllProducts: React.FC = memo(() => {
+export const AllProducts: React.FC = () => {
   const products = useQuery({
     queryKey: ["products"],
     queryFn: fetchProducts,
@@ -20,4 +19,4 @@ export const AllProducts: React.FC = memo(() => {
       </div>
     </div>
   );
-});
+};
