@@ -21,7 +21,7 @@ export const AllProducts: React.FC = () => {
   return (
     <div>
       {products.isPending && <h2>is loading ...</h2>}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-2 pl-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-between  pl-2">
         {productState.length !== 0 &&
           productState.map((card) => (
             <ProductCard key={card.id} {...card} />

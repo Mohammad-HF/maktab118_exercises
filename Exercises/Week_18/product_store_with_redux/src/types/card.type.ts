@@ -3,4 +3,5 @@ export interface ICardList {
   title: string;
   price: number;
   image: string;
+  rate : number;
 }

@@ -15,7 +15,7 @@ export const Popup: React.FC<
     if (cardList.list.length === 0) hidePopup();
   }, [cardList]);
   return (
-    <div className="absolute grid gap-y-2 px-4 py-2 mt-1 right-0 min-w-[276px] border bg-white rounded-md">
+    <div className="absolute grid gap-y-2 px-4 py-2 mt-1 right-0 min-w-[276px] max-h-[calc(100vh_-_500px)] overflow-y-auto border bg-white rounded-md ">
       {cardList.list.map((product) => {
         return (
           <div key={product.id} className="flex gap-x-2 items-center">
@@ -23,7 +23,7 @@ export const Popup: React.FC<
             {/* <img src={images[0]} alt="pic" /> */}
             <img className="h-10 w-16" src="lake-Montain.jpg" alt="" />
             <div className="flex flex-col gap-y-1 text-sm font-semibold w-3/6">
-              <h2 className="truncate">{product.title}</h2>
+              <h2 className="truncate max-w-32">{product.title}</h2>
               <h2>{product.price}</h2>
             </div>
             <button onClick={() => removeProduct(product.id)}>

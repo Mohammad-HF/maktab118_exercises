@@ -10,6 +10,6 @@ interface IResProductsDto extends IResDto {
 }
 const url = "https://dummyjson.com/products";
 export const fetchProducts = async () => {
-  const response = await axios.get<IResProductsDto>(url);
+  const response = await axios.get<IResProductsDto>(url,{params : {skip : 100 , limit :94}});
   return response.data;
 };
