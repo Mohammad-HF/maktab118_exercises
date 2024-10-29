@@ -1,10 +1,11 @@
-import { IoStar, IoStarHalfOutline } from "react-icons/io5";
 import { IProducts } from "../types/products.type";
 import { Button } from "./header/Button";
 import { useDispatch } from "react-redux";
 import { cardAction } from "../redux/features/cardSlice";
+import { Rating } from "./Rating";
+import { memo } from "react";
 
-export const ProductCard: React.FC<IProducts> = ({
+export const ProductCard: React.FC<IProducts> = memo(({
   id,
   title,
   images,
@@ -30,7 +31,7 @@ export const ProductCard: React.FC<IProducts> = ({
       <h2 className="font-semibold">{title}</h2>
       <div className="flex gap-x-1 items-center">
         <p>{rating}</p>
-        {[1,2,3,4,5].slice(0,Math.round(rating)).map((el)=> <p key={el}><IoStar /></p>)}
+        {<Rating rate={Math.round(rating)}/>}
       </div>
       <p className="font font-semibold">${price}</p>
       <p>{availabilityStatus}</p>
@@ -41,4 +42,4 @@ export const ProductCard: React.FC<IProducts> = ({
       <Button add={addToCard} remove={removeOfCard} idProduct={id} disabled={stock === 0 ? true : false} className="disabled:bg-gray-400"/>
     </div>
   );
-};
+});

@@ -5,6 +5,7 @@ export interface IProductState {
   list: IProducts[];
   searchValue: string;
 }
+export type Sort = "ascending" | "descending" | "";
 
 const initialState: IProductState = {
   list: [],
@@ -20,7 +21,7 @@ export const ProductSlice = createSlice({
     },
     searchProduct: (state, action: PayloadAction<string>) => {
       state.searchValue = action.payload;
-    },
+    }
   },
 });
 
