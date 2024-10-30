@@ -1,18 +1,15 @@
 import { FaBasketShopping, FaCaretDown } from "react-icons/fa6";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { useState } from "react";
 import { Popup } from "./Popup";
-import { productAction } from "../../redux/features/productSlice";
 import { Link, useLocation } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
+import { useAppSelector } from "../../redux/hooks";
+import { Input } from "./Input";
 
 export const Header: React.FC = () => {
   const [popup, setPopup] = useState<boolean>(false);
   const cardList = useAppSelector((state) => state.card);
-  const dispatch = useAppDispatch();
-  const searchProducts: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-    dispatch(productAction.searchProduct(e.target.value));
-  };
+
   const { pathname } = useLocation();
 
   const hidePopup = () => {
@@ -33,14 +30,7 @@ export const Header: React.FC = () => {
               : "justify-end sm:w-1/2"
           } shrink gap-x-1 `}
         >
-          {pathname === "/" && (
-            <input
-              onChange={searchProducts}
-              className="px-2 py-2 grow max-w-96 rounded-md focus:outline-blue-500 focus:outline focus:outline-2"
-              type="text"
-              placeholder="Search a product"
-            />
-          )}
+          {pathname === "/" && <Input/>}
           <div className="relative ">
             <button
               onClick={() => setPopup((prev) => !prev)}
