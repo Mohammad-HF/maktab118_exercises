@@ -2,7 +2,6 @@ import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { Sort } from "../../redux/features/productSlice";
 import { Rating } from "../Rating";
 import { filterAction } from "../../redux/features/filterSlice";
-import { ShoppingSlide } from "./ShoppingSide";
 
 export const ProductsSide: React.FC = () => {
   const dispatch = useAppDispatch();

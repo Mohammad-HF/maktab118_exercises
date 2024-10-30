@@ -3,7 +3,8 @@ import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { useState } from "react";
 import { Popup } from "./Popup";
 import { productAction } from "../../redux/features/productSlice";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { FaHome } from "react-icons/fa";
 
 export const Header: React.FC = () => {
   const [popup, setPopup] = useState<boolean>(false);
@@ -21,8 +22,17 @@ export const Header: React.FC = () => {
   return (
     <div className="bg-appGray w-full z-50 fixed">
       <div className="flex flex-wrap gap-1 justify-evenly px-4 sm:px-8 py-3 items-center w-full container mx-auto">
-        <h2 className="text-white text-2xl font-semibold ">Shopping Card</h2>
-        <div className={`flex ${pathname === "/" ? "justify-between min-w-[265px] w-1/2" : "justify-end sm:w-1/2"} shrink gap-x-1 `}>
+        <Link to={"/"} className="flex gap-x-2 items-center">
+          <FaHome className="size-8 fill-white"/>
+          <h2 className="text-white text-2xl font-semibold ">Shopping Card</h2>
+        </Link>
+        <div
+          className={`flex ${
+            pathname === "/"
+              ? "justify-between min-w-[265px] w-1/2"
+              : "justify-end sm:w-1/2"
+          } shrink gap-x-1 `}
+        >
           {pathname === "/" && (
             <input
               onChange={searchProducts}
@@ -41,7 +51,13 @@ export const Header: React.FC = () => {
               {cardList.list.length}
               <FaCaretDown className="size-3 inline-block ml-1 fill-yellow-50" />
             </button>
-            {popup && <Popup cardList={cardList} hidePopup={hidePopup} pathName={pathname}/>}
+            {popup && (
+              <Popup
+                cardList={cardList}
+                hidePopup={hidePopup}
+                pathName={pathname}
+              />
+            )}
           </div>
         </div>
       </div>

@@ -4,4 +4,6 @@ export interface ICardList {
   price: number;
   image: string;
   rate : number;
+  qty : number;
+  total : number;
 }

@@ -17,7 +17,7 @@ export const ProductCard: React.FC<IProducts> = memo(({
 }) => {
   const dispatch = useDispatch();
   const addToCard = () => {
-    dispatch(cardAction.addToCard({ id, image: images[0], price, title ,rate:rating}));
+    dispatch(cardAction.addToCard({ id, image: images[0], price, title ,rate:rating , qty:1,total:price}));
   };
   const removeOfCard = () => {
     dispatch(cardAction.removeOfCard(id));
