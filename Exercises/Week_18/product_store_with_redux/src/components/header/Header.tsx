@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { useState } from "react";
 import { Popup } from "./Popup";
 import { productAction } from "../../redux/features/productSlice";
+import { useLocation } from "react-router-dom";
 
 export const Header: React.FC = () => {
   const [popup, setPopup] = useState<boolean>(false);
@@ -11,6 +12,8 @@ export const Header: React.FC = () => {
   const searchProducts: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     dispatch(productAction.searchProduct(e.target.value));
   };
+  const { pathname } = useLocation();
+
   const hidePopup = () => {
     setPopup(false);
   };
@@ -19,13 +22,15 @@ export const Header: React.FC = () => {
     <div className="bg-appGray w-full z-50 fixed">
       <div className="flex flex-wrap gap-1 justify-evenly px-4 sm:px-8 py-3 items-center w-full container mx-auto">
         <h2 className="text-white text-2xl font-semibold ">Shopping Card</h2>
-        <div className="flex justify-between gap-x-1 w-1/2 min-w-[265px] ">
-          <input
-            onChange={searchProducts}
-            className="px-2 py-2 grow max-w-96 rounded-md focus:outline-blue-500 focus:outline focus:outline-2"
-            type="text"
-            placeholder="Search a product"
-          />
+        <div className={`flex ${pathname === "/" ? "justify-between min-w-[265px] w-1/2" : "justify-end sm:w-1/2"} shrink gap-x-1 `}>
+          {pathname === "/" && (
+            <input
+              onChange={searchProducts}
+              className="px-2 py-2 grow max-w-96 rounded-md focus:outline-blue-500 focus:outline focus:outline-2"
+              type="text"
+              placeholder="Search a product"
+            />
+          )}
           <div className="relative ">
             <button
               onClick={() => setPopup((prev) => !prev)}
@@ -36,7 +41,7 @@ export const Header: React.FC = () => {
               {cardList.list.length}
               <FaCaretDown className="size-3 inline-block ml-1 fill-yellow-50" />
             </button>
-            {popup && <Popup cardList={cardList} hidePopup={hidePopup} />}
+            {popup && <Popup cardList={cardList} hidePopup={hidePopup} pathName={pathname}/>}
           </div>
         </div>
       </div>

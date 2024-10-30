@@ -2,10 +2,11 @@ import { useEffect } from "react";
 import { useAppDispatch } from "../../redux/hooks";
 import { cardAction, ICardState } from "../../redux/features/cardSlice";
 import { MdDelete } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 export const Popup: React.FC<
-  { cardList: ICardState } & { hidePopup: () => void }
-> = ({ cardList ,hidePopup}) => {
+  { cardList: ICardState } & { hidePopup: () => void , pathName : string}
+> = ({ cardList, hidePopup ,pathName}) => {
   const dispatch = useAppDispatch();
   const removeProduct = (id: number) => {
     dispatch(cardAction.removeOfCard(id));
@@ -32,9 +33,14 @@ export const Popup: React.FC<
           </div>
         );
       })}
-      <button className="w-full bg-blue-500 px-2 py-1 rounded-md text-white">
-        Go to Card
-      </button>
+{
+  pathName !== "/shopping-card" &&       <Link to={"/shopping-card"}>
+  <button onClick={hidePopup} className="w-full bg-blue-500 px-2 py-1 rounded-md text-white">
+    Go to Card
+  </button>
+
+      </Link>
+      }
     </div>
   );
 };
