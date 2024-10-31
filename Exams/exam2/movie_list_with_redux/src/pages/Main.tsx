@@ -11,11 +11,8 @@ export const Main: React.FC = () => {
     dispatch(movieAction.removeMovie(id));
   };
   const changeSort = (so: Sort) => {
-    console.log(so);
-    
     dispatch(movieAction.changeSort(so));
   };
-  console.log(movieState);
   
   return (
     <div>
@@ -31,7 +28,7 @@ export const Main: React.FC = () => {
               {movieState.sort === "byName" && <IoIosArrowUp className="inline-block ml-2 fill-white size-6" />}
             </th>
             <th
-              className="border py-2 w-[10%] hover:bg-gray-600 hover:cursor-pointer"
+              className="border py-2 w-[13.3%] hover:bg-gray-600 hover:cursor-pointer"
               onClick={() => changeSort("byScore")}
             >
               Score
