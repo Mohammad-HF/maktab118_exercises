@@ -1,6 +1,6 @@
 export interface IForm{
     movieName : string;
-    score : number;
+    score : string;
     genre : string;
 }
 
