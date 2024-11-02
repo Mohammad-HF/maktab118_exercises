@@ -27,7 +27,7 @@ export const ProductsSide: React.FC = () => {
   return (
     <>
       <div
-        className="flex flex-col gap-y-6 bg-appGray text-white h-[calc(100vh-86px)] rounded-md ml-2 p-2 sm:p-4 w-full sticky max-h-[810px]"
+        className="flex flex-col gap-y-6 bg-appGray text-white h-[calc(100vh-86px)] rounded-md ml-2 p-2 sm:p-4 w-full sticky top-28 xs:top-20 max-h-[810px]"
       >
         <h2 className=" text-lg sm:text-2xl pb-2 flex-shrink">
           Filter Products

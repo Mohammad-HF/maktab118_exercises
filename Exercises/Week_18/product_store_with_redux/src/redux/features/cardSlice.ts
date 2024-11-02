@@ -30,6 +30,9 @@ export const cardSlice = createSlice({
           : item
       );
     },
+    removeAll : (state)=>{
+      state.list = []
+    }
   },
 });
 export const cardAction = cardSlice.actions;

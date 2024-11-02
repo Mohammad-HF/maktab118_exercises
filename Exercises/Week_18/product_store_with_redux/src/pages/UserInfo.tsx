@@ -3,27 +3,27 @@ import { UserInfoInput } from "../components/UserInfoInput";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { userInfoSchema } from "../validations/userInfoValidation";
 import { IForm } from "../types/userForm.type";
-import { useAppSelector } from "../redux/hooks";
+import { useState } from "react";
+import { AllInfo } from "../components/AllInfo";
 
 export const UserInfo: React.FC = () => {
-  const cardList = useAppSelector(state => state.card.list)
+  const [formInfo, setFormInfo] = useState<IForm>();
   const {
     control,
     handleSubmit,
     formState: { isDirty, isValid },
   } = useForm<IForm>({ mode: "all", resolver: zodResolver(userInfoSchema) });
 
-  const submitform = (values:IForm)=>{
-    console.log(values,cardList);
-    
-  }
+  const submitform = (values: IForm) => {
+    setFormInfo(values)
+  };
   return (
     <div className="flex flex-col items-center max-w-screen-md rounded-md text-white mx-1 md:mx-auto bg-appGray ">
       <h2 className="font-semibold border-b py-2 w-full text-center text-base md:text-xl">
         Complete your Information
       </h2>
       <form
-        onSubmit={handleSubmit((values)=>submitform(values))}
+        onSubmit={handleSubmit((values) => submitform(values))}
         className="w-full flex flex-wrap gap-5 justify-center md:justify-around py-4 px-4 "
       >
         <Controller
@@ -101,6 +101,7 @@ export const UserInfo: React.FC = () => {
           Submit
         </button>
       </form>
+      {formInfo && <AllInfo userInfo={formInfo}/>}
     </div>
   );
 };
