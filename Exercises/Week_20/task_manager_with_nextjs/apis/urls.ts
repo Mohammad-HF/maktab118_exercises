@@ -5,5 +5,9 @@ export const urls = {
         signUp : "api/collections/users/records",
         token : "api/collections/users/auth-with-password"
         
+    },
+    task : {
+        list : "api/collections/tasks/records",
+        addTask : "api/collections/tasks/records"
     }
 }

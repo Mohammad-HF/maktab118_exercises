@@ -1,0 +1,17 @@
+"use client"
+import { useState } from "react";
+import { FaPlus } from "react-icons/fa";
+import { NewTask } from "./NewTask";
+
+export const NewTaskButton : React.FC = ()=>{
+    const [show,setShow] = useState<boolean>(false);
+    return <>
+     <button
+      onClick={()=>setShow(prev=>!prev)}
+      className="flex items-center gap-x-2 border bg-gray-300 px-2 rounded-md hover:bg-gray-400">
+        <FaPlus />
+        <span>add new task</span>
+      </button>
+      {show && <NewTask showHandle={()=>setShow(false)}/>}
+    </>
+}
