@@ -8,7 +8,7 @@ export const NewTaskButton : React.FC = ()=>{
     return <>
      <button
       onClick={()=>setShow(prev=>!prev)}
-      className="flex items-center gap-x-2 border bg-gray-300 px-2 rounded-md hover:bg-gray-400">
+      className="flex items-center gap-x-2 border bg-[#fd9fa1] font-semibold px-2 rounded-md hover:bg-gray-400">
         <FaPlus />
         <span>add new task</span>
       </button>

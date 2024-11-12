@@ -14,7 +14,7 @@ export const Navbar: React.FC = () => {
       </Link>
       <div className="sm:flex gap-x-4 hidden">
         <Link href={"/in-progress"}>
-          <button className="text-white font-semibold border rounded-md py-1 px-2 bg-red-400 hover:bg-red-600">
+          <button className="text-white font-semibold border rounded-md py-1 px-2 bg-[#f7be82] hover:bg-[#ca945e]">
             In Progress
           </button>
         </Link>
