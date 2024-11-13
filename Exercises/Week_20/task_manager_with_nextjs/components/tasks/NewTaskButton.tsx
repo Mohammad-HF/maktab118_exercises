@@ -12,6 +12,6 @@ export const NewTaskButton : React.FC = ()=>{
         <FaPlus />
         <span>add new task</span>
       </button>
-      {show && <NewTask showHandle={()=>setShow(false)}/>}
+      {show && <NewTask isEdit={false} showHandle={()=>setShow(false)}/>}
     </>
 }

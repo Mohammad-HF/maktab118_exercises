@@ -8,6 +8,8 @@ export const urls = {
     },
     task : {
         list : "api/collections/tasks/records",
-        addTask : "api/collections/tasks/records"
+        addTask : "api/collections/tasks/records",
+        editTask : (id : string)=> `api/collections/tasks/records/${id}`,
+        deleteTask : (id : string)=>`api/collections/tasks/records/${id}`
     }
 }
