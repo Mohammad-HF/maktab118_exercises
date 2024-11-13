@@ -1,8 +1,12 @@
+"use server"
 import { fetchTaskListService } from "@/apis/server-side-apis/tasks_service";
 import { NewTaskButton } from "@/components/tasks/NewTaskButton";
 import { HighPriority } from "@/containers/HighPriority";
 import { LowPriority } from "@/containers/LowPriority";
 import { MediumPriority } from "@/containers/MediumPriority";
+import { getToken } from "@/utils/session-managment";
+import { redirect } from "next/navigation";
+
 
 const Tasks: React.FC = async () => {
   const tasks = await fetchTaskListService();

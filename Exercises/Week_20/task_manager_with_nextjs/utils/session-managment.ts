@@ -1,9 +1,19 @@
-const userToken = "user-session-token";
-export const setToken = (token :string)=>{
-    localStorage.setItem(userToken,token)
-}
+import { cookies } from "next/headers";
 
-export const getToken = ()=>{
-  const token =  localStorage.getItem(userToken);
-  return token
-}
+const userToken = "user-session-token";
+
+export const setToken = async (token: string) => {
+  const cookieStore = await cookies();
+  cookieStore.set(userToken, token);
+};
+
+export const getToken = async () => {
+  const cookieStore = await cookies();
+  const token = cookieStore.get(userToken);
+  return token?.value;
+};
+
+export const removeToken = async () => {
+  const cookieStore = await cookies();
+  cookieStore.delete(userToken);
+};

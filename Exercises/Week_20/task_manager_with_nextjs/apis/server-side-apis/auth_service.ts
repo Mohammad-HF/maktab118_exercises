@@ -17,11 +17,12 @@ export const signUp: SignUp = async (data) => {
       urls.auth.token,
       { identity: data.get("userName"), password: data.get("password") }
     );
-    setToken(responseToken.data.token);
-    redirect("/tasks")
+   await setToken(responseToken.data.token);
   } catch (error) {
     console.log((error as AxiosError).response?.data);
+    return;
   }
+  redirect("/tasks")
 };
 
 type Login = (data: FormData) => Promise<void>;
@@ -31,9 +32,10 @@ export const login: Login = async (data) => {
       urls.auth.token,
       { identity: data.get("userName"), password: data.get("password") }
     );
-    setToken(responseToken.data.token);
-    redirect("/tasks")
+   await setToken(responseToken.data.token);
   } catch (error) {
     console.log((error as AxiosError).response?.data, "---------");
+    return;
   }
+  redirect("/tasks")
 };

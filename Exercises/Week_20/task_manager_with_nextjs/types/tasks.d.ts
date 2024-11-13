@@ -6,5 +6,6 @@ interface ITask{
       updated?: string,
       priority: string,
       title: string,
-      description: string
+      description: string,
+      completed : boolean
 }
