@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { IoHomeSharp } from "react-icons/io5";
-import { Menu } from "../Menu";
+import { Menu } from "./Menu";
 import { LoginSingupButton } from "./L&SButton";
 
 export const Navbar: React.FC = () => {
