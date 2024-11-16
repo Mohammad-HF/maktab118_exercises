@@ -8,12 +8,13 @@ import { redirect } from "next/navigation";
 type SignUp = (data: FormData) => Promise<void>;
 export const signUp: SignUp = async (data) => {
   try {
-    const response = await httpReq().post(urls.auth.signUp, {
+    const instance = await httpReq()
+    const response = await instance.post(urls.auth.signUp, {
       email: data.get("userName"),
       password: data.get("password"),
       passwordConfirm: data.get("password"),
     });
-    const responseToken = await httpReq().post<{ token: string }>(
+    const responseToken = await instance.post<{ token: string }>(
       urls.auth.token,
       { identity: data.get("userName"), password: data.get("password") }
     );
@@ -28,7 +29,8 @@ export const signUp: SignUp = async (data) => {
 type Login = (data: FormData) => Promise<void>;
 export const login: Login = async (data) => {
   try {
-    const responseToken = await httpReq().post<{ token: string }>(
+    const instance = await httpReq()
+    const responseToken = await instance.post<{ token: string }>(
       urls.auth.token,
       { identity: data.get("userName"), password: data.get("password") }
     );
