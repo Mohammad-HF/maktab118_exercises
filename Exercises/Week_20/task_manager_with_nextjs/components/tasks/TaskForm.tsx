@@ -9,6 +9,7 @@ import {
 import { Controller, useForm } from "react-hook-form";
 import { ITaskForm, taskFormSchema } from "@/validations/taskForm.validation";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { toast } from "react-toastify";
 
 export const TaskForm: React.FC<{
   showHandle: () => void;
@@ -19,11 +20,18 @@ export const TaskForm: React.FC<{
     control,
     handleSubmit,
     formState: { isValid, isDirty },
-  } = useForm<ITaskForm>({ resolver: zodResolver(taskFormSchema),mode:"all" });
+  } = useForm<ITaskForm>({
+    resolver: zodResolver(taskFormSchema),
+    mode: "all",
+  });
   const submitForm: (data: ITaskForm) => void = (data) => {
-    isEdit && task
-      ? editTaskService(data, task.id)
-      : addNewTaskService(data);
+    if (isEdit && task) {
+      editTaskService(data, task.id);
+      toast.success("Task edited");
+    } else {
+      addNewTaskService(data);
+      toast.success("Task created");
+    }
     showHandle();
   };
   return (
@@ -81,11 +89,13 @@ export const TaskForm: React.FC<{
                     <Controller
                       control={control}
                       name="completed"
-                      defaultValue={isEdit && task?.completed === true
-                        ? "yes"
-                        : isEdit && task?.completed === false
-                        ? "no"
-                        : undefined}
+                      defaultValue={
+                        isEdit && task?.completed === true
+                          ? "yes"
+                          : isEdit && task?.completed === false
+                          ? "no"
+                          : undefined
+                      }
                       render={({ field, fieldState }) => {
                         return (
                           <RadioInput
@@ -131,7 +141,7 @@ export const TaskForm: React.FC<{
             </div>
             <div className="bg-[#fdcfd0] border-t-2 border-white px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
               <button
-              disabled={!isDirty || !isValid}
+                disabled={!isDirty || !isValid}
                 type="submit"
                 className="disabled:bg-red-300 inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
               >

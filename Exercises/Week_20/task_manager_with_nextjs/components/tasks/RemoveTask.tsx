@@ -1,13 +1,15 @@
 import { MdDelete } from "react-icons/md";
 import { CancelButton } from "./CancelButton";
 import { removeTaskService } from "@/apis/server-side-apis/tasks_service";
+import { toast } from "react-toastify";
 
 export const RemoveTask: React.FC<{ showHandle: () => void; id: string }> = ({
   showHandle,
   id,
 }) => {
-    const submitHandle  = ()=>{
-        removeTaskService(id);
+    const submitHandle  = async()=>{
+       await removeTaskService(id);
+       toast.success("Task deleted")
         showHandle();
     }
   return (

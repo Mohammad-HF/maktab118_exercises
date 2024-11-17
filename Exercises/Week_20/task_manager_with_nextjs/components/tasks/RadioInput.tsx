@@ -1,5 +1,5 @@
 "use client"
-import {DetailedHTMLProps, InputHTMLAttributes, useState } from "react";
+import {DetailedHTMLProps, InputHTMLAttributes} from "react";
 
 interface IRadioInputProps
   extends DetailedHTMLProps<

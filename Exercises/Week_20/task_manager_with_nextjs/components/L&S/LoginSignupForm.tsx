@@ -3,19 +3,39 @@ import { Input } from "./Input";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { LoginSignupFormSchema } from "@/validations/L&S.validation";
-import { usePathname} from "next/navigation";
+import { usePathname } from "next/navigation";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
+import { IError } from "@/apis/server-side-apis/auth_service";
 
 export const LoginSignupForm: React.FC<{
-  requestFn: (data: ILoginSignup) => void;
+  requestFn: (data: ILoginSignup) => Promise<undefined | IError>;
 }> = ({ requestFn }) => {
+  const { push } = useRouter();
   const pathname = usePathname();
   const {
     control,
     handleSubmit,
     formState: { isDirty, isValid },
-  } = useForm<ILoginSignup>({ resolver: zodResolver(LoginSignupFormSchema),mode:"all" });
-  const submitForm = (data: ILoginSignup) => {
-    requestFn(data);
+  } = useForm<ILoginSignup>({
+    resolver: zodResolver(LoginSignupFormSchema),
+    mode: "all",
+  });
+  const submitForm = async (data: ILoginSignup) => {
+    const err = await requestFn(data);
+    if (err) {
+      return toast.error(err.message);
+    }
+    pathname === "/login"
+      ? toast.success("logged in")
+      : toast.success("user created");
+
+    push("/tasks");
+    // try {
+    //   await requestFn(data)
+    // } catch (error ) {
+    //   console.log(error)
+    // }
   };
   return (
     <form
