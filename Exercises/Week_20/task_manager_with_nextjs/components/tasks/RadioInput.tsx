@@ -1,5 +1,5 @@
 "use client"
-import { ChangeEventHandler, DetailedHTMLProps, InputHTMLAttributes, useState } from "react";
+import {DetailedHTMLProps, InputHTMLAttributes, useState } from "react";
 
 interface IRadioInputProps
   extends DetailedHTMLProps<
@@ -7,23 +7,20 @@ interface IRadioInputProps
     HTMLInputElement
   > {
   label: string;
-  name: string;
   select: string[];
   error?: string;
-  value?: string;
 }
 export const RadioInput: React.FC<IRadioInputProps> = ({
   label,
-  name,
   error,
-  select,
   value,
+  select,
   ...props
 }) => {
-  const [inputValue , setInputValue] = useState<string | undefined>(value);
-  const changeHandler : ChangeEventHandler<HTMLInputElement> = (e)=>{
-    setInputValue(e.target.value);
-  }
+  // const [inputValue , setInputValue] = useState<string | undefined>(value);
+  // const changeHandler : ChangeEventHandler<HTMLInputElement> = (e)=>{
+  //   setInputValue(e.target.value);
+  // }
   return (
     <>
       <div className="flex">
@@ -36,13 +33,11 @@ export const RadioInput: React.FC<IRadioInputProps> = ({
               <div key={index} className="flex gap-x-1">
                 <label htmlFor={item}>{item}</label>
                 <input
-                onChange={changeHandler}
                   {...props}
                   type="radio"
-                  name={name}
                   value={item}
                   id={item}
-                  checked={inputValue === item ? true : false}
+                  checked={value === item ? true : false}
                 ></input>
               </div>
             );

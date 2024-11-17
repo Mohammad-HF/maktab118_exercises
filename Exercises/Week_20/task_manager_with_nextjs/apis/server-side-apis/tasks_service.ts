@@ -3,8 +3,9 @@ import { AxiosError } from "axios";
 import { httpReq } from "../client";
 import { urls } from "../urls";
 import { revalidatePath } from "next/cache";
+import { ITaskForm } from "@/validations/taskForm.validation";
 
-type IAddNewTask = (data: FormData) => Promise<void>;
+type IAddNewTask = (data: ITaskForm) => Promise<void>;
 export const addNewTaskService: IAddNewTask = async (data) => {
   try {
     const instance = await httpReq();
@@ -49,16 +50,14 @@ export const fetchPartTaskListService: FetchPartTaskListService = async (
   }
 };
 
-type EditTaskService = (data: FormData, id: string) => Promise<void>;
+type EditTaskService = (data: ITaskForm, id: string) => Promise<void>;
 export const editTaskService: EditTaskService = async (data, id) => {
   try {
     const instance = await httpReq();
 
     const response = await instance.patch(urls.task.editTask(id), {
-      priority: data.get("priority"),
-      title: data.get("title"),
-      description: data.get("description"),
-      completed: data.get("completed") === "yes" ? true : false,
+      ...data,
+      completed: data.completed === "yes" ? true : false,
     });
     revalidatePath("/tasks");
   } catch (error) {

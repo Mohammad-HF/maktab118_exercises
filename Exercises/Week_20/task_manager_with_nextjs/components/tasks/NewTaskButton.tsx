@@ -1,7 +1,7 @@
 "use client"
 import { useState } from "react";
 import { FaPlus } from "react-icons/fa";
-import { NewTask } from "./NewTask";
+import { TaskForm } from "./TaskForm";
 
 export const NewTaskButton : React.FC = ()=>{
     const [show,setShow] = useState<boolean>(false);
@@ -12,6 +12,6 @@ export const NewTaskButton : React.FC = ()=>{
         <FaPlus />
         <span>add new task</span>
       </button>
-      {show && <NewTask isEdit={false} showHandle={()=>setShow(false)}/>}
+      {show && <TaskForm isEdit={false} showHandle={()=>setShow(false)}/>}
     </>
 }
