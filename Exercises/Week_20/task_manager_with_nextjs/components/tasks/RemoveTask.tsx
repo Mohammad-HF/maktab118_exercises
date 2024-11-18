@@ -8,9 +8,9 @@ export const RemoveTask: React.FC<{ showHandle: () => void; id: string }> = ({
   id,
 }) => {
     const submitHandle  = async()=>{
-       await removeTaskService(id);
-       toast.success("Task deleted")
-        showHandle();
+      await removeTaskService(id);
+      toast.success("Task deleted")
+      showHandle();
     }
   return (
     <div
@@ -27,7 +27,7 @@ export const RemoveTask: React.FC<{ showHandle: () => void; id: string }> = ({
       <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
         <div className="flex min-h-full justify-center p-4 text-center items-center sm:p-0">
           <form
-            action={submitHandle}
+            onSubmit={submitHandle}
             className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-xl"
           >
             <div className="bg-[#fdcfd0] px-4 pb-4 pt-5 sm:p-6 sm:pb-4">

@@ -17,10 +17,7 @@ export const RadioInput: React.FC<IRadioInputProps> = ({
   select,
   ...props
 }) => {
-  // const [inputValue , setInputValue] = useState<string | undefined>(value);
-  // const changeHandler : ChangeEventHandler<HTMLInputElement> = (e)=>{
-  //   setInputValue(e.target.value);
-  // }
+
   return (
     <>
       <div className="flex">

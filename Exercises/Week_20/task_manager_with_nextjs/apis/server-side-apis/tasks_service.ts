@@ -4,12 +4,23 @@ import { httpReq } from "../client";
 import { urls } from "../urls";
 import { revalidatePath } from "next/cache";
 import { ITaskForm } from "@/validations/taskForm.validation";
+import { getToken } from "@/utils/session-managment";
 
 type IAddNewTask = (data: ITaskForm) => Promise<void>;
 export const addNewTaskService: IAddNewTask = async (data) => {
   try {
     const instance = await httpReq();
-    const response = await instance.post(urls.task.addTask, data);
+    // for get email and save in tasks
+    const token = await getToken();
+    const params = { filter: `token= '${token}'` };
+    const emailToken = await instance.get<{ items: { email: string }[] }>(
+      urls.emailToken.get,
+      { params }
+    );
+    const response = await instance.post(urls.task.addTask, {
+      ...data,
+      email: emailToken.data.items[0].email,
+    });
     revalidatePath("/tasks");
   } catch (error) {
     console.log((error as AxiosError).response?.data);
@@ -22,8 +33,17 @@ interface ITaskResDto extends IResDto {
 type FetchTaskListService = () => Promise<ITaskResDto | undefined>;
 export const fetchTaskListService: FetchTaskListService = async () => {
   try {
+    const token = await getToken();
     const instance = await httpReq();
-    const response = await instance.get<ITaskResDto>(urls.task.list);
+    const params = { filter: `token= '${token}'` };
+    const emailToken = await instance.get<{ items: { email: string }[] }>(
+      urls.emailToken.get,
+      { params }
+    );
+    const taskParams = {
+      filter: `email= '${emailToken.data.items[0].email}'`,
+    };
+    const response = await instance.get<ITaskResDto>(urls.task.list,{params:taskParams});
     return response.data;
   } catch (error) {
     console.log((error as AxiosError).response?.data);
@@ -37,12 +57,18 @@ export const fetchPartTaskListService: FetchPartTaskListService = async (
   part
 ) => {
   try {
-    const params = {
-      filter: `completed= ${part === "completed" ? true : false} `,
-    };
+    const token = await getToken();
     const instance = await httpReq();
+    const params = { filter: `token= '${token}'` };
+    const emailToken = await instance.get<{ items: { email: string }[] }>(
+      urls.emailToken.get,
+      { params }
+    );
+    const taskParams = {
+      filter: `completed= ${part === "completed" ? true : false} && email= '${emailToken.data.items[0].email}'`,
+    };
     const response = await instance.get<ITaskResDto>(urls.task.list, {
-      params: params,
+      params: taskParams,
     });
     return response.data;
   } catch (error) {

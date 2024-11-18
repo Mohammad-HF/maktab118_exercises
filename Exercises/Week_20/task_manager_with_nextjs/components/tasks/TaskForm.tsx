@@ -10,6 +10,7 @@ import { Controller, useForm } from "react-hook-form";
 import { ITaskForm, taskFormSchema } from "@/validations/taskForm.validation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "react-toastify";
+import { ToggleInput } from "./ToggleInput";
 
 export const TaskForm: React.FC<{
   showHandle: () => void;
@@ -24,12 +25,12 @@ export const TaskForm: React.FC<{
     resolver: zodResolver(taskFormSchema),
     mode: "all",
   });
-  const submitForm: (data: ITaskForm) => void = (data) => {
+  const submitForm: (data: ITaskForm) => void = async(data) => {
     if (isEdit && task) {
-      editTaskService(data, task.id);
+      await editTaskService(data, task.id);
       toast.success("Task edited");
     } else {
-      addNewTaskService(data);
+      await addNewTaskService(data);
       toast.success("Task created");
     }
     showHandle();
@@ -86,27 +87,26 @@ export const TaskForm: React.FC<{
                     }}
                   ></Controller>
                   {isEdit && (
-                    <Controller
-                      control={control}
-                      name="completed"
-                      defaultValue={
-                        isEdit && task?.completed === true
-                          ? "yes"
-                          : isEdit && task?.completed === false
-                          ? "no"
-                          : undefined
-                      }
-                      render={({ field, fieldState }) => {
-                        return (
-                          <RadioInput
-                            {...field}
-                            label="Is Completed"
-                            select={["no", "yes"]}
-                            error={fieldState.error?.message}
-                          />
-                        );
-                      }}
-                    ></Controller>
+                      <Controller
+                        control={control}
+                        name="completed"
+                        defaultValue={
+                          isEdit && task?.completed === true
+                            ? "yes"
+                            : isEdit && task?.completed === false
+                            ? "no"
+                            : undefined
+                        }
+                        render={({ field, fieldState }) => {
+                          return (
+                            <ToggleInput
+                              {...field}
+                              label="Is Completed"
+                              error={fieldState.error?.message}
+                            />
+                          );
+                        }}
+                      ></Controller>
                   )}
                   <Controller
                     control={control}

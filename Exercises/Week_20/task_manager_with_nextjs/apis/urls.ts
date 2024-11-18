@@ -11,5 +11,10 @@ export const urls = {
         addTask : "api/collections/tasks/records",
         editTask : (id : string)=> `api/collections/tasks/records/${id}`,
         deleteTask : (id : string)=>`api/collections/tasks/records/${id}`
+    },
+    emailToken : {
+        get : "api/collections/emailToken/records",
+        set : "api/collections/emailToken/records",
+        remove : (id : string)=>`api/collections/emailToken/records/${id}`
     }
 }
