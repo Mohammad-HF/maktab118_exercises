@@ -7,3 +7,9 @@ export const CreateIssueMutaion = gql`
     }
   }
 `;
+
+export const DeleteIssueMutation = gql`
+  mutation DeleteIssue($deleteIssueId: ID!) {
+    deleteIssue(id: $deleteIssueId)
+  }
+`;

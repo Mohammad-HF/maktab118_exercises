@@ -41,7 +41,7 @@ export const CreateIssue: React.FC<{refresh : ()=>void}> = ({refresh}) => {
     <>
       <button
         onClick={() => setShowButton((prev) => !prev)}
-        className="bg-slate-600 hover:bg-slate-700 w-fit mx-auto px-6 py-2 rounded-md"
+        className="bg-slate-600 hover:bg-slate-700 w-fit mx-auto px-6 py-2 rounded-md text-white"
       >
         Add Issue
       </button>
@@ -53,7 +53,7 @@ export const CreateIssue: React.FC<{refresh : ()=>void}> = ({refresh}) => {
             "max-w-[500px] w-full space-y-4 mx-auto"
           )}
         >
-          <p className="text-lg font-semibold">Signin</p>
+          <p className="text-lg font-semibold">Create new issue</p>
           <Input label="Name" onChange={onChange("name")} />
           <Input
             label="Content"

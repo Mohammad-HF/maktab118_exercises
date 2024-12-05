@@ -10,9 +10,9 @@ interface Issue {
   user?: IUser;
 }
 
-interface ICreateIssue{
-  name : string;
-  content : string;
+interface ICreateIssue {
+  name: string;
+  content: string;
   status: string;
 }
 
