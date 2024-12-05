@@ -6,7 +6,7 @@ import { useMutation } from "@apollo/client";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
-export const CreateIssue: React.FC<{refresh : ()=>void}> = ({refresh}) => {
+export const CreateIssue: React.FC<{ refresh: () => void }> = ({ refresh }) => {
   const [showButton, setShowButton] = useState<boolean>(false);
   const [values, setValues] = React.useState<ICreateIssue>({
     content: "",
@@ -15,7 +15,8 @@ export const CreateIssue: React.FC<{refresh : ()=>void}> = ({refresh}) => {
   });
 
   const { push } = useRouter();
-  const [createIssue, { loading }] = useMutation<ICreateIssueDto>(CreateIssueMutaion);
+  const [createIssue, { loading }] =
+    useMutation<ICreateIssueDto>(CreateIssueMutaion);
   const onChange: (
     _: keyof ICreateIssue
   ) => React.ChangeEventHandler<HTMLInputElement> = (field) => {
@@ -55,14 +56,8 @@ export const CreateIssue: React.FC<{refresh : ()=>void}> = ({refresh}) => {
         >
           <p className="text-lg font-semibold">Create new issue</p>
           <Input label="Name" onChange={onChange("name")} />
-          <Input
-            label="Content"
-            onChange={onChange("content")}
-          />
-          <Input
-            label="Status"
-            onChange={onChange("status")}
-          />
+          <Input label="Content" onChange={onChange("content")} />
+          <Input label="Status ( DONE | INPROGRESS | BACKLOG )" onChange={onChange("status")} />
           <Button disabled={loading} type="submit">
             Add Issue
           </Button>
