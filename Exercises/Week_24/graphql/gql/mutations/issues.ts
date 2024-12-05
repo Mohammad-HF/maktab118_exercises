@@ -13,3 +13,10 @@ export const DeleteIssueMutation = gql`
     deleteIssue(id: $deleteIssueId)
   }
 `;
+export const UpdateIssueMutaion = gql`
+  mutation EditIssue($input: EditIssueInput!) {
+    editIssue(input: $input) {
+      createdAt
+    }
+  }
+`;

@@ -4,6 +4,7 @@ import { useMutation, useQuery } from "@apollo/client";
 import { fetchIssuesQuery } from "@/gql/queries/issues";
 import { CreateIssue } from "./createIssue";
 import { DeleteIssueMutation } from "@/gql/mutations/issues";
+import { UpdateIssueStatus } from "./updateIssue";
 
 export const IssuesListContainer: React.FC = () => {
   const { loading, error, data, refetch } = useQuery<{ issues: Array<Issue> }>(
@@ -11,10 +12,10 @@ export const IssuesListContainer: React.FC = () => {
   );
   const [deleteIssue] = useMutation(DeleteIssueMutation);
 
-  const deleteIssueHandler = (id : string)=>{
-    const responst = deleteIssue({variables:{deleteIssueId : id}})
-    refetch()
-  }
+  const deleteIssueHandler = (id: string) => {
+    const responst = deleteIssue({ variables: { deleteIssueId: id } });
+    refetch();
+  };
 
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
@@ -40,7 +41,15 @@ export const IssuesListContainer: React.FC = () => {
                 <h2>{el.name}</h2>
                 <h2>{el.content}</h2>
                 <h2>{el.status}</h2>
-                <button onClick={()=>deleteIssueHandler(el.id)} className="font-semibold block bg-red-300 hover:bg-red-400 rounded-md">eete</button>
+                <div className="flex gap-x-2 justify-center">
+                  <button
+                    onClick={() => deleteIssueHandler(el.id)}
+                    className="font-semibold block bg-red-300 hover:bg-red-400 px-2 py-1 rounded-md"
+                  >
+                    delete
+                  </button>
+                  <UpdateIssueStatus orgValue={el.status} id={el.id} refresh={() => refetch()} />
+                </div>
               </div>
             )
         )}
@@ -61,8 +70,16 @@ export const IssuesListContainer: React.FC = () => {
               <div className="grid grid-cols-4 " key={index}>
                 <h2>{el.name}</h2>
                 <h2>{el.content}</h2>
-                <h2>{ el.status}</h2>
-                <button onClick={()=>deleteIssueHandler(el.id)} className="font-semibold block bg-red-300 hover:bg-red-400 rounded-md">delete</button>
+                <h2>{el.status}</h2>
+                <div className="flex gap-x-2 justify-center">
+                  <button
+                    onClick={() => deleteIssueHandler(el.id)}
+                    className="font-semibold block bg-red-300 hover:bg-red-400 px-2 py-1 rounded-md"
+                  >
+                    delete
+                  </button>
+                  <UpdateIssueStatus orgValue={el.status} id={el.id} refresh={() => refetch()} />
+                </div>
               </div>
             )
         )}
@@ -83,8 +100,16 @@ export const IssuesListContainer: React.FC = () => {
               <div className="grid grid-cols-4 " key={index}>
                 <h2>{el.name}</h2>
                 <h2>{el.content}</h2>
-                <h2>{ el.status}</h2>
-                <button onClick={()=>deleteIssueHandler(el.id)} className="font-semibold block bg-red-300 hover:bg-red-400 rounded-md">delete</button>
+                <h2>{el.status}</h2>
+                <div className="flex gap-x-2 justify-center">
+                  <button
+                    onClick={() => deleteIssueHandler(el.id)}
+                    className="font-semibold block bg-red-300 hover:bg-red-400 px-2 py-1 rounded-md"
+                  >
+                    delete
+                  </button>
+                  <UpdateIssueStatus orgValue={el.status} id={el.id} refresh={() => refetch()} />
+                </div>
               </div>
             )
         )}

@@ -21,3 +21,11 @@ interface ICreateIssueDto {
     createdAt: string;
   };
 }
+interface IUpdateIssueDto {
+  editIssue: {
+    createdAt: string;
+  };
+}
+interface IUpdateIssue{
+  status : string;
+}
